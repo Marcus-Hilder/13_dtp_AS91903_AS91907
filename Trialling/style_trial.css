@@ -1,0 +1,23 @@
+.nav_container_ravil {
+    background-color: green;
+}
+
+.nav_trial{
+    background-color: brown;
+}
+
+
+/* Ryan's Styling */
+
+.header-Ryan {
+    background-color: #CAB786;
+}
+
+.navbar-color-Ryan {
+    background-color: #165740;
+}
+
+.navbar-button-Ryan {
+    --bs-btn-bg: #C60C30;
+    --bs-btn-border-color: #C60C30;
+}
