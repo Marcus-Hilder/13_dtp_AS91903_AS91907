@@ -1,0 +1,14 @@
+/* Ryan's Styling */
+
+.header-Ryan {
+    background-color: #CAB786;
+}
+
+.navbar-color-Ryan {
+    background-color: #165740;
+}
+
+.navbar-button-Ryan {
+    --bs-btn-bg: #C60C30;
+    --bs-btn-border-color: #C60C30;
+}
