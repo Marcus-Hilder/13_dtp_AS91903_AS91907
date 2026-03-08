@@ -1,3 +1,10 @@
+header {
+    background-color: #CAB786;
+}
+
+.navbar-color {
+    background-color: #165740;
+}
 .nav_container {
     text-decoration: none;
     background-color: green;
