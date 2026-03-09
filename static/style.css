@@ -2,6 +2,14 @@ header {
     background-color: #CAB786;
 }
 
+header img {
+    height: 6vmax;
+}
+
 .navbar-color {
     background-color: #165740;
+}
+
+.custom-page-header {
+    background-color: #C60C30 !important;
 }

@@ -21,7 +21,7 @@
 .navbar-button-Ryan {
     background-color: #C60C30 !important;
     border-radius: 0.375rem !important;
-    width: 25vmin;
+    width: 15vmin;
 }
 
 .navbar-button-Ryan:active {
@@ -34,7 +34,7 @@
     border-style: solid !important;
     border-width: 1px !important;
     border-radius: 0.375rem !important;
-    width: 25vmin;
+    width: 15vmin;
 }
 
 .dropdown-Ryan {
@@ -76,5 +76,6 @@
 }
 
 .foot-note-Ryan {
+    text-decoration: none;
     color: #ffffff;
 }
