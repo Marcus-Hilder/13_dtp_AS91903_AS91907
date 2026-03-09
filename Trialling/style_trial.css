@@ -1,9 +1,13 @@
 .navbar_ravil {
-    background-color: #165740;
+    background-color: #165740 !important;
 }
 
-.nav_trial{
+.navbar_button_ravil {
     background-color: #C60C30 !important;
+}
+
+.hi{
+    background-color: #CAB786 !important;
 }
 
 
