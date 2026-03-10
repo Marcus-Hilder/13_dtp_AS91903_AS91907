@@ -13,3 +13,18 @@ header img {
 .custom-page-header {
     background-color: #C60C30 !important;
 }
+
+.bg-grey {
+    background-color: #F4F4F4;
+}
+
+.custom-input-bar {
+    background-color: #f0f0f0;
+    border-style: none;
+    border-radius: 50pt;
+}
+
+.custom-button {
+    background-color: #C60C30 !important;
+    color: #ffffff !important;
+}
