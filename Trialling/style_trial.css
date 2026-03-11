@@ -9,6 +9,14 @@
 
 .ravil_footer{
     background-color: #165740 !important;
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+}
+
+.footer-logo{
+    width: 300px;
+    height: auto;
 }
 
 
