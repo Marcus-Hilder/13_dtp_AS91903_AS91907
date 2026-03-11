@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 def get_db_conn():
     """setup connection to sql database"""
-    conn = sqlite3.connect('INPUT HERE.db')
+    conn = sqlite3.connect('club_data.db')
     conn.row_factory = sqlite3.Row
     return conn
 
@@ -28,3 +28,6 @@ def sign_ups():
     page_title = "Westlake Clubs - Sign Ups"
 
     return render_template("sign_ups.html", page_title=page_title)
+
+if __name__ == '__main__':
+    app.run(debug=True, port=5000)

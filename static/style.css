@@ -1,3 +1,38 @@
+:root {
+    --wl-red:   #c0392b;
+    --wl-green: #1a5c2a;
+    --wl-red-hover: #96281b;
+}
+
+body {
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+.navbar-wl {
+	background-color: var(--wl-green) !important;
+}
+
+.navbar-toggler {
+	border-color: rgba(255,255,255,0.5);
+}
+.navbar-toggler-icon {
+	filter: invert(1);
+}
+
+.nav-btn-consistent {
+    min-width: 110px;
+    font-size: 1rem;
+    font-family: Helvetica, Arial, sans-serif;
+    background-color: var(--wl-red);
+    border-color: var(--wl-red);
+    color: #fff;
+}
+.nav-btn-consistent:hover,
+.nav-btn-consistent:focus {
+	background-color: var(--wl-red-hover);
+    border-color: var(--wl-red-hover);
+    color: #fff;
+}
 header {
     background-color: #CAB786;
 }
