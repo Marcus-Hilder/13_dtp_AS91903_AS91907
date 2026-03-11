@@ -28,3 +28,8 @@ header img {
     background-color: #C60C30 !important;
     color: #ffffff !important;
 }
+
+.custom-dropdown-menu {
+    overflow-y: scroll;
+    height: 50%;
+}
