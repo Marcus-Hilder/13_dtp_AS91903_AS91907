@@ -11,9 +11,10 @@ def get_db_conn():
 
 @app.route('/')
 def index():
+    page_title = "Home"
     """main home page """
     
-    return render_template("index.html",)
+    return render_template("index.html", page_title=page_title)
 
 @app.route('/Marcus_test')
 def marcus_test():
