@@ -21,3 +21,9 @@ def marcus_test():
     
     return render_template("index.html",)
 
+@app.route('/sign_ups')
+def sign_ups():
+    """Sign ups webpage"""
+    page_title = "Westlake Clubs - Sign Ups"
+
+    return render_template("sign_ups.html", page_title=page_title)
