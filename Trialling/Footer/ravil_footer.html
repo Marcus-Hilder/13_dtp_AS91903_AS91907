@@ -10,11 +10,23 @@
 
 <body>
     <div class="container-fluid ravil_footer py-3 text-white text-center">
-        <ul class="nav justify-content-center mb-4 my-3"> 
+        <ul class="nav justify-content-center mb-4 my-3 flex-column flex-sm-row gap-0"> 
             <li class="nav-item">
-                <a class="nav-link text-white" href="#">Our Sponsors</a>
+                <div class="dropup">
+                    <button type="button" class="btn dropdown-toggle 
+                    text-white" data-bs-toggle="dropdown">Our Sponsors</button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#"><img src="/static/nzqa.png" class="nzqa"></a></li>
+                        <hr>
+                        <li><a class="dropdown-item" href="#"><img src="/static/ministry_of_education.png"></a></li>
+                        <hr>
+                        <li><a class="dropdown-item" href="#"><img src="/static/ibsc.png" class="ibsc"></a></li>
+                        <hr>
+                        <li><a class="dropdown-item" href="#"><img src="/static/westlakers.jpg" class="westlakers_logo"></a></li>
+                    </ul>
+                </div>
             </li>
-            <div class="vr bg-white mx-3"></div>
+            <div class="vr bg-white mx-4 d-none d-sm-block"></div>
             <li class="nav-item">
                 <div class="dropup">
                     <button type="button" class="btn dropdown-toggle text-white" data-bs-toggle="dropdown">Contact Us</button>
@@ -25,11 +37,11 @@
                     </ul>
                 </div>
             </li>
-            <div class="vr bg-white mx-3"></div>
+            <div class="vr bg-white mx-4 d-none d-sm-block"></div>
             <li class="nav-item">
                 <a class="nav-link text-white" href="#">Privacy Policy</a>
             </li>
-            <div class="vr bg-white mx-3"></div>
+            <div class="vr bg-white mx-4 d-none d-sm-block"></div>
             <li class="nav-item">
                 <a class="nav-link text-white" href="#">Terms of Service</a>
             </li>
