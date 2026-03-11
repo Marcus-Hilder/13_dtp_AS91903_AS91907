@@ -32,6 +32,15 @@
     margin-left: 16px;
 }
 
+.ravil_header{
+    background-color: #CAB786 !important;
+}
+
+.header_logo{
+    width: auto;
+    height: 100px;
+}
+
 /* Ryan's Styling */
 
 /* Nav Bar */
