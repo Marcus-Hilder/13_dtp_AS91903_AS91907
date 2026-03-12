@@ -24,27 +24,41 @@
             <div class="collapse navbar-collapse" id="mainNav">
                 <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-2">
                     <li class="nav-item mx-1 my-1">
-                        <button type="button" class="btn nav-btn-consistent w-100">Home</button>
+                        <a href="{{ url_for('index') }}">
+                            <button type="button" class="btn nav-btn-consistent w-100">Home</button>
+                        </a>
                     </li>
                     <li class="nav-item mx-1 my-1">
-                        <button type="button" class="btn nav-btn-consistent w-100">Sign Ups</button>
+                        <a href="{{ url_for('sign_ups') }}">
+                            <button type="button" class="btn nav-btn-consistent w-100">Sign Ups</button>
+                        </a>
                     </li>
                     <li class="nav-item mx-1 my-1">
-                        <button type="button" class="btn nav-btn-consistent w-100">Enquiries</button>
+                        <a href="{{ url_for('enquiries') }}">
+                            <button type="button" class="btn nav-btn-consistent w-100">Enquiries</button>
+                        </a>
                     </li>
                     <li class="nav-item mx-1 my-1">
-                        <button type="button" class="btn nav-btn-consistent w-100">Timetable</button>
+                        <a href="{{ url_for('timetable') }}">
+                            <button type="button" class="btn nav-btn-consistent w-100">Timetable</button>
+                        </a>
                     </li>
                     <li class="nav-item mx-1 my-1">
-                        <button type="button" class="btn nav-btn-consistent w-100">Create Club</button>
+                        <a href="{{ url_for('create_club') }}">
+                            <button type="button" class="btn nav-btn-consistent w-100">Create Club</button>
+                        </a>
                     </li>
                     <li class="nav-item mx-1 my-1">
-                        <button type="button" class="btn nav-btn-consistent w-100">Review</button>
+                        <a href="{{ url_for('review') }}">
+                            <button type="button" class="btn nav-btn-consistent w-100">Review</button>
+                        </a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+
+    {% block content %}{% endblock %}
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
