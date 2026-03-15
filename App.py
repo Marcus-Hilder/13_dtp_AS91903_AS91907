@@ -18,26 +18,33 @@ def index():
     
     return render_template("index.html", page_title=page_title)
 
-@app.route('/TimeTable')
-def TimeTable():
-    page_title = "Westlake Clubs | Time Table"
+@app.route('/timetable')
+def timetable():
+    page_title = "Westlake Clubs | Timetable"
     # Get year/month from URL params or default to today
-    year = request.args.get('year', type=int)
-    month = request.args.get('month', type=int)
+    year = None
+    month = None
+    
     today_dt = datetime.now()
-
-    if not year or not month:
-        year = today_dt.year
+    if not year:
+        year = today_dt.year  
+    if not month:
         month = today_dt.month
     cal = calendar.monthcalendar(year, month)
-
+    month_back = calendar.monthcalendar(year, month -1)
+    month_forward = calendar.monthcalendar(year, month +1)
+    month_name = calendar.month_name[month]
     conn = get_db_conn()
     conn.row_factory = sqlite3.Row
     check = conn.execute("SELECT * FROM clubs")
     club = check.fetchall()
-    for i in club:
-        print(i["club_start_date"])
-    return render_template("timetable.html",page_title=page_title,calendar=cal,)
+    for start in club:
+        start_date = int(start["club_start_date"].split("-")[2])
+        # print(start_date)
+        # print(start["club_start_date"])
+    
+
+    return render_template("timetable.html",page_title=page_title,cal=cal,month_name=month_name)
 
 @app.route('/sign_ups', methods=["GET", "POST"])
 def sign_ups():
@@ -57,8 +64,9 @@ def sign_ups():
         cur = conn.cursor()
         cur.execute("INSERT INTO signups VALUES (?, ?, ?, ?, ?)", (full_name, email, club, why_desc, availability_desc))
         conn.commit()
+        conn.close()
 
-        return render_template("sign_ups.html", page_title=page_title, clubs=clubs, )
+        return render_template("sign_ups.html", page_title=page_title, clubs=clubs)
 
 
     conn = get_db_conn()
@@ -72,12 +80,7 @@ def enquiries():
 
     return render_template("enquiries.html", page_title=page_title)
 
-@app.route('/timetable')
-def timetable():
-    """Timetable webpage"""
-    page_title = "Westlake Clubs - Timetable"
 
-    return render_template("timetable.html", page_title=page_title)
 
 @app.route('/create_club')
 def create_club():
@@ -94,4 +97,4 @@ def review():
     return render_template("review.html", page_title=page_title)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(host='0.0.0.0', debug=True, port=5000)
