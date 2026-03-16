@@ -37,12 +37,17 @@ def timetable():
     conn = get_db_conn()
     conn.row_factory = sqlite3.Row
     check = conn.execute("SELECT * FROM clubs")
-    club = check.fetchall()
-    for start in club:
+    club_all = check.fetchall()
+    for start in club_all:
         start_date = int(start["club_start_date"].split("-")[2])
-        # print(start_date)
-        # print(start["club_start_date"])
-    
+        print(start_date)
+        print(start["club_start_date"])
+
+    club_date_dic = {} #int dict
+    for club_info in club_all:
+        club_date_dic[club_info["club_day"]] = club_info["club_name"]
+    print(club_date_dic)
+
 
     return render_template("timetable.html",page_title=page_title,cal=cal,month_name=month_name)
 

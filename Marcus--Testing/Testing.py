@@ -3,21 +3,39 @@ import sqlite3
 from datetime import datetime, timedelta
 import calendar
 
-def cal_test():
-    # year = request.args.get('year', type=int)
-    # month = request.args.get('month', type=int)
+def get_db_conn():
+    """setup connection to sql database"""
+    conn = sqlite3.connect('club_data.db')
+    conn.row_factory = sqlite3.Row
+    return conn
+
+def timetable():
+    page_title = "Westlake Clubs | Timetable"
+    # Get year/month from URL params or default to today
     year = None
     month = None
+    
     today_dt = datetime.now()
-
     if not year:
         year = today_dt.year  
     if not month:
         month = today_dt.month
     cal = calendar.monthcalendar(year, month)
-    for week in cal:
-        for day in week:
-             print(day)
-                
+    month_back = calendar.monthcalendar(year, month -1)
+    month_forward = calendar.monthcalendar(year, month +1)
+    month_name = calendar.month_name[month]
+    conn = get_db_conn()
+    conn.row_factory = sqlite3.Row
+    check = conn.execute("SELECT * FROM clubs")
+    club_all = check.fetchall()
+    for start in club_all:
+        start_date = int(start["club_start_date"].split("-")[2])
+        # print(start_date)
+        # print(start["club_start_date"])
+    club_date_dic = {}
+    for club_info in club_all:
+        club_date_dic[club_info["club_day"]] = club_info["club_name"]
+        # Yout need to add nested dictonay 
+    print(club_date_dic)
 
-cal_test()
+timetable()
