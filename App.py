@@ -38,10 +38,19 @@ def timetable():
     conn.row_factory = sqlite3.Row
     check = conn.execute("SELECT * FROM clubs")
     club_all = check.fetchall()
-    for start in club_all:
-        start_date = int(start["club_start_date"].split("-")[2])
-        print(start_date)
-        print(start["club_start_date"])
+    club_dic = {}
+    for day in club_all:
+        club_day = int(day["club_day"])
+        club_name = day["club_name"] 
+        club_dic[club_day] = {}
+        club_dic[club_day]["club_name"] = club_name
+    print(club_dic)
+    # for start in club_all:
+    #     start_date = int(start["club_start_date"].split("-")[2])
+    #     print(start_date)
+    #     print(start["club_start_date"])
+    
+
 
     club_date_dic = {} #int dict
     for club_info in club_all:
