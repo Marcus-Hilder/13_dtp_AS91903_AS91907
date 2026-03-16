@@ -8,6 +8,10 @@ body {
 	font-family: Helvetica, Arial, sans-serif;
 }
 
+.mt-8 {
+    margin-top: 8rem !important;
+}
+
 .navbar-wl {
 	background-color: var(--wl-green) !important;
 }
@@ -68,7 +72,22 @@ header img {
     overflow-y: scroll;
     height: 50%;
 }
+
 .top_vector{
     z-index: -1;
     position: absolute;
+}
+
+.bottom_vector {
+    z-index: -1;
+    position: absolute;
+    transform-origin: bottom right;
+    transform: translateX(100%) translateY(100%);
+}
+
+.sign_ups_redvector {
+    z-index: -1;
+    position: absolute;
+    transform-origin: center;
+    transform: translate(0, 50%);
 }
