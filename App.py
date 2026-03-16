@@ -60,6 +60,7 @@ def sign_ups():
         
         conn = get_db_conn()
         conn.row_factory = sqlite3.Row
+        clubs = conn.execute('SELECT * FROM clubs ORDER BY club_name ASC').fetchall()
 
         cur = conn.cursor()
         cur.execute("INSERT INTO signups VALUES (?, ?, ?, ?, ?)", (full_name, email, club, why_desc, availability_desc))
@@ -71,6 +72,8 @@ def sign_ups():
 
     conn = get_db_conn()
     clubs = conn.execute('SELECT * FROM clubs ORDER BY club_name ASC').fetchall()
+    conn.close()
+
     return render_template("sign_ups.html", page_title=page_title, clubs=clubs)
 
 @app.route('/enquiries')
