@@ -68,3 +68,7 @@ header img {
     overflow-y: scroll;
     height: 50%;
 }
+.top_vector{
+    z-index: -1;
+    position: absolute;
+}
