@@ -9,7 +9,7 @@
 
     <img class="sign_ups_redvector w-100" src="/static/RedVector1.png" alt="Red Vector">
 
-    <div class="card col-7 mx-auto mt-8">
+    <div class="card col-7 mx-auto mt-8 mb-8">
         <div class="card-body p-5">
             <h5 class="card-title">Sign Ups</h5>
             <h6 class="card-subtitle mb-2 text-body-secondary">Fill out this form to sign up for a club</h6>
@@ -24,7 +24,7 @@
                 </div>
                 <div class="my-4">
                     <p class="card-text">Club Interest</p>
-                    <select class="col-12 col-xxl-6 col-sm-10 px-3 custom-input-bar" name="club" id="club">
+                    <select class="col-12 col-xxl-6 col-sm-10 px-3 py-1 custom-input-bar" name="club" id="club">
                         {% for club in clubs %}
                             <option value="{{ club.club_name.strip().lower().replace(' ', '-') }}" class="dropdown-item custom-dropdown-item-Ryan py-3">{{club.club_name}}</a>
                         {% endfor %}
@@ -42,6 +42,10 @@
             <button type="submit" class="btn custom-button">Sign Up</button>
 
             </form>
+        </div>
+
+        <div class="col-0 col-xxl-4 position-absolute form-image">
+            <img class="w-100" src="/static/westlakeshield.png" alt="">
         </div>
     </div>
 
