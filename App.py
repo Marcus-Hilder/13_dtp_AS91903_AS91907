@@ -40,25 +40,18 @@ def timetable():
     club_all = check.fetchall()
     club_dic = {}
     for day in club_all:
-        club_day = int(day["club_day"])
-        club_name = day["club_name"] 
-        club_dic[club_day] = {}
-        club_dic[club_day]["club_name"] = club_name
-    print(club_dic)
-    # for start in club_all:
-    #     start_date = int(start["club_start_date"].split("-")[2])
-    #     print(start_date)
-    #     print(start["club_start_date"])
-    
+ 
+        club_dic[day["id"]] = {}
+        club_dic[day["id"]]["club_day"] = int(day["club_day"])
+        club_dic[day["id"]]["club_slot"] = int(day["club_slot"])
+        club_dic[day["id"]]["club_name"] = day["club_name"]
+        club_dic[day["id"]]["club_description"] = day["club_description"]
+    for i, a in club_dic.items():
+        print(i, ":",a)
 
 
-    club_date_dic = {} #int dict
-    for club_info in club_all:
-        club_date_dic[club_info["club_day"]] = club_info["club_name"]
-    print(club_date_dic)
 
-
-    return render_template("timetable.html",page_title=page_title,cal=cal,month_name=month_name)
+    return render_template("timetable.html",page_title=page_title,cal=cal,month_name=month_name,club_dic=club_dic)
 
 @app.route('/sign_ups', methods=["GET", "POST"])
 def sign_ups():

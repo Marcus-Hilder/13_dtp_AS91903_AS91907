@@ -13,9 +13,12 @@
             </tr>
         </thead>
         <tbody>
+            
             {% for week in cal %}
+            {{count = 0 }}
             <tr>
                 {% for day in week %}
+                    {{count += 1}}
                     {% if day == 0 %}
                         <td>
                             <div class="card h100">
@@ -24,11 +27,15 @@
                         </td>
                     {% else %}
                     <td>
+                        
+
                         <div class="card h100">
                         
                         <div class="card-body">
                             <h3 class="h5 card-title mb-1">{{ day }}</h3>
-                            <p class="text-muted mb-2">Drama - 2026</p>
+                            {%for id, items in club_dic%}
+                                {%%}
+                            <p>{{items.}}</p>
                             
                         </div>
                             <div class="card-footer bg-white border-0 pt pb-3 px-3">
