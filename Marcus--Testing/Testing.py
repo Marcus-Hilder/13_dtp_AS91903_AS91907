@@ -28,14 +28,15 @@ def timetable():
     conn.row_factory = sqlite3.Row
     check = conn.execute("SELECT * FROM clubs")
     club_all = check.fetchall()
-    for start in club_all:
-        start_date = int(start["club_start_date"].split("-")[2])
-        # print(start_date)
-        # print(start["club_start_date"])
-    club_date_dic = {}
-    for club_info in club_all:
-        club_date_dic[club_info["club_day"]] = club_info["club_name"]
-        # Yout need to add nested dictonay 
-    print(club_date_dic)
+    club_dic = {}
+    
+    for day in club_all:
+        club_name = day["club_name"] 
+        club_dic[day["id"]] = {}
+        club_dic[day["id"]]["club_day"] = int(day["club_day"])
+        club_dic[day["id"]]["club_name"] = club_name
+        club_dic[day["id"]]["club_description"] = day["club_description"]
+    for i, a in club_dic.items():
+        print(i, ":",a)
 
 timetable()
