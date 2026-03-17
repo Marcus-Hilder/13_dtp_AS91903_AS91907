@@ -35,19 +35,27 @@ def timetable():
     month_forward = calendar.monthcalendar(year, month +1)
     month_name = calendar.month_name[month]
     conn = get_db_conn()
+    week_count = 0
+    for week in cal:
+        count += 1
+    print(count)
+        
+
+    # club pull and white to dict
     conn.row_factory = sqlite3.Row
     check = conn.execute("SELECT * FROM clubs")
     club_all = check.fetchall()
     club_dic = {}
     for day in club_all:
- 
         club_dic[day["id"]] = {}
         club_dic[day["id"]]["club_day"] = int(day["club_day"])
         club_dic[day["id"]]["club_slot"] = int(day["club_slot"])
         club_dic[day["id"]]["club_name"] = day["club_name"]
         club_dic[day["id"]]["club_description"] = day["club_description"]
-    for i, a in club_dic.items():
-        print(i, ":",a)
+    for i, items in club_dic.items():
+        if items["club_day"] == 1:
+            print(items)
+
 
 
 
