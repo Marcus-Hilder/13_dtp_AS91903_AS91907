@@ -5,6 +5,7 @@ import calendar
 
 app = Flask(__name__) 
 
+
 def get_db_conn():
     """setup connection to sql database"""
     conn = sqlite3.connect('club_data.db')
@@ -107,4 +108,4 @@ def review():
     return render_template("review.html", page_title=page_title)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=8080)
