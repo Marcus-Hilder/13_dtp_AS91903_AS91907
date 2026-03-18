@@ -10,8 +10,35 @@
                 <th scope="col">Wednesday</th>
                 <th scope="col">Thursday</th>
                 <th scope="col">Friday</th>
+                <th scope="col">Saturday</th>
+                <th scope="col">Sunday</th>
             </tr>
         </thead>
+        <tbody>
+            {% set count = namespace(value=0) %}
+            <tr>
+                {% for day in cal_week %}
+                    {% set count.value = count.value + 1 %}
+                    <td>
+                        <div class="card" style="height: 500px;">
+                            <div class="card-body">
+                                <h3 class="h5 card-title mb-1">{{ day }}</h3>
+                                {%for id, items in club_dic.items()%}
+                                    {%if items["club_day"] == count.value%}
+                                        <p class="card">{{items["club_name"]}}</p>
+                                        <span class="badge text-bg-success">8/10</span>
+                                        
+                                    {% endif %}
+                                    
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </td>
+                
+                {% endfor %}
+            </tr>
+  
+        </tbody>
         <tbody>
             
             {% for week in cal %}

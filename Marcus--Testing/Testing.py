@@ -36,9 +36,9 @@ def timetable():
         week_count += 1
     if today_week == None:
         today_week = 0
-        
-
-    print(today_week)
+    cal_week = cal[today_week]
+    
+    
     conn = get_db_conn()
     conn.row_factory = sqlite3.Row
     check = conn.execute("SELECT * FROM clubs")
