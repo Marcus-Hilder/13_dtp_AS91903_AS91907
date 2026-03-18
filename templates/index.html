@@ -31,14 +31,127 @@ Get involved, stay connected, and be part of something bigger.
         </div>
     </div>
 
-    <div id="myCarousel" class="carousel slide autoshow" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
 
     
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="/static/carousel_1.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="/static/carousel_3.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Second slide label</h5>
+        <p>Some representative placeholder content for the second slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="/static/carousel_2.webp" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+    <section>
+      <!-- This is a div used as decoration to underline the header. -->
+      <div id="underline1"></div>
+
+      <!-- This div contains all the university summary boxes in the card swiper, and is necessary for
+      the swiper external library to function. -->
+      <div id="box_container" class="swiper">
+            <!-- This is a mandatory div needed for the swiper library to function. -->
+            <div class="box_card swiper-wrapper">
+                  <!-- Each div here is one of the university summary boxes for a specific university. They contain
+                   the summarised information of a specific university. -->
+
+                  <!-- University of Auckland -->
+                  <div class="infobox swiper-slide">
+                        <!-- This div contains the background image of the university summary box. -->
+                        <div class="infobox_img">
+                              <img src="resources/uoaMain.jpg" alt="University of Auckland Campus">
+                        </div>
+
+                        <!-- This header contains the name of the university that the university summary box contains info on. -->
+                        <h2 class="uni_name">
+                              University of Auckland
+                        </h2>
+
+                        <!-- This div contains all the text information of the university summary box. -->
+                        <div class="infobox_info">
+                              <!-- This div contains the element that the summary text resides on. -->
+                              <div class="infobox_bg">
+                                    <img src="resources/infoboxshape.png" alt=""> <!-- This should not have alt text. -->
+                              </div>
+
+                              <!-- This is the main body of the university summary text in the summary box. -->
+                              <p class="infobox_main">
+                                    The University of Auckland is the perfect option for any Kiwi academic who wishes to study domestically. Ranked 65th in the world and 1st nationally, they provide numerous facilities and educators that ensure the success of its students.
+                                    <br>
+                                    <br>
+                                    Extracurriculars are numerous and open to anyone willing to join, promoting a robust social life among its students. Having been open since 1883, the University of Auckland boasts a long list of renowned graduates who have made names for themselves in their fields.
+                              </p>
+                              
+                              <!-- This is the text that shows the average annual tuition of the specific university. -->
+                              <p class="infobox_price">
+                                    ~$8,000 per annum
+                              </p>
+
+                              <!-- This is a link that takes the user to the specific university's website in a new tab. -->
+                              <a href="https://www.auckland.ac.nz/en.html" target="_blank" class="unilink">Visit their website</a>
+                        </div>
+                  </div>
+            </div>
+
+            <!-- These divs are part of the swiper external library. -->
+
+            <!-- This div is used for the dots below the card swiper, which visualise which card you are on. -->
+            <div class="swiper-pagination"></div>
+            <!-- This div contains the arrow to transition to the previous card. -->
+            <div class="swiper-button-prev"></div>
+            <!-- This div contains the arrow to transition to the next card. -->
+            <div class="swiper-button-next"></div>
+      </div>
+      <!-- Both of the scripts below link to necessary scripts for the swiper external library to function. -->
+      <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+      <script src="/static/script.js"></script>
+<section>
+
 
     </main>
 

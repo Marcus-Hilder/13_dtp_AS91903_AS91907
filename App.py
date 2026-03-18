@@ -96,7 +96,7 @@ def sign_ups():
         clubs = conn.execute('SELECT * FROM clubs ORDER BY club_name ASC').fetchall()
 
         cur = conn.cursor()
-        cur.execute("INSERT INTO signups VALUES (?, ?, ?, ?, ?)", (full_name, email, club, why_desc, availability_desc))
+        cur.execute("INSERT INTO signups (full_name, email, club, why_desc, availability_desc) VALUES (?, ?, ?, ?, ?)", (full_name, email, club, why_desc, availability_desc))
         conn.commit()
         conn.close()
 
