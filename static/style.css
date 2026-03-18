@@ -110,7 +110,7 @@ body {
 }
 
 .custom-drop-item {
-    background-color: #e2d7ba !important;
+    background-color: #ffffff !important;
 }
 
 .footer-logo{
@@ -185,7 +185,7 @@ header img {
     width: 65%;
     height: auto;
     transform-origin: bottom right;
-    transform: translateX(100%) translateY(0);
+    transform: translateX(53.85%) translateY(0);
 }
 
 .sign_ups_redvector {
