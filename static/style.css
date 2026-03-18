@@ -1,3 +1,35 @@
+.index_card{
+    margin-top: 50px !important;
+}
+
+
+.autoShow{
+    animation: text-appear 0.3s both;
+    animation-timeline: view();
+    animation-range: 20% cover 100vh;
+}
+
+@keyframes text-appear{
+        from{
+            opacity: 0;
+            transform: translateY(100px);
+        }
+        to{
+            opacity: 1;
+            transform: translateY(0);
+            }
+        }
+
+
+.overlay{
+    top: 10%;
+    left: 10%;
+    position :absolute;
+    color: black;
+    font-size: 2.9vw;
+}
+
+
 
 .fixed_img{
     max-width: 100%;
@@ -5,33 +37,27 @@
     display: block;
 }
 
-.overlay{
-    top: 8px;
-    left: 16px;
-    position :absolute;
-    color: black;
-}
+
 .overlay_2026{
-    top: 50px;
-    left: 20px;
+    top: 50%;
+    left: 8%;
     position: absolute;
     color: #C60C30;
+    font-size: 3vw;
 }
 .image_container{
     position: relative;
     text-align: center;
 }
 
-.background{
-    transform: translateX(50%) translateY(50%);
-    font-size: xx-large;
+.box{
     position: absolute;
-    background-color: #e8e8e8;
-    width: 400px;
-    height: 100px;
+    background-color: rgba(232, 232, 232, 0.75); /* 0.5 = 50% opacity */
+    width: 23%;
+    height: 18%;
     border-radius: 3px;
-    top: 50px;
-    left: 200px;
+    top: 30%;
+    left: 20%;
 }
 
 
