@@ -1,12 +1,10 @@
-<<<<<<< HEAD
-=======
+
 .fixed_img{
     max-width: 100%;
     height: auto;
     display: block;
 }
 
->>>>>>> 5e95addc054e08cca26b5815a72cc958aec623c9
 .overlay{
     top: 8px;
     left: 16px;
@@ -15,6 +13,7 @@
 }
 .overlay_2026{
     top: 50px;
+    left: 20px;
     position: absolute;
     color: #C60C30;
 }
@@ -24,12 +23,13 @@
 }
 
 .background{
+    transform: translateX(50%) translateY(50%);
     font-size: xx-large;
     position: absolute;
-    background-color: #aaaaaa;
+    background-color: #e8e8e8;
     width: 400px;
     height: 100px;
-    border-radius: 25px;
+    border-radius: 3px;
     top: 50px;
     left: 200px;
 }
