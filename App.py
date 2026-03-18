@@ -11,7 +11,12 @@ def get_db_conn():
     conn = sqlite3.connect('club_data.db')
     conn.row_factory = sqlite3.Row
     return conn
-
+@app.route('/test')
+def test():
+    page_title = "test"
+    
+    
+    return render_template("timetable2.html", page_title=page_title)
 @app.route('/')
 def index():
     page_title = "Home"
@@ -36,13 +41,14 @@ def timetable():
         week_count = 0
         today_week = 0
         # if in curent month then set week to today else defalt to the first week.
-        for week in cal:
+        
+    cal = calendar.monthcalendar(year, month)
+    for week in cal:
             for day in week:
                 if day == today_dt.day and month == today_dt.month:
                     today_week = week_count
             week_count += 1
     # get the cal for the wanted week
-    cal = calendar.monthcalendar(year, month)
     cal_week = cal[today_week]
     month_back = calendar.monthcalendar(year, month -1)
     month_forward = calendar.monthcalendar(year, month +1)
@@ -64,14 +70,14 @@ def timetable():
         club_dic[day["id"]]["club_slot"] = int(day["club_slot"])
         club_dic[day["id"]]["club_name"] = day["club_name"]
         club_dic[day["id"]]["club_description"] = day["club_description"]
-    for i, items in club_dic.items():
-        if items["club_day"] == 1:
-            print(items)
+    # for i, items in club_dic.items():
+    #     if items["club_day"] == 1:
+    #         print(items)
 
 
 
 
-    return render_template("timetable.html",page_title=page_title,cal=cal,cal_week=cal_week,month_name=month_name,club_dic=club_dic)
+    return render_template("timetable2.html",page_title=page_title,cal=cal,cal_week=cal_week,month_name=month_name,club_dic=club_dic)
 
 @app.route('/sign_ups', methods=["GET", "POST"])
 def sign_ups():

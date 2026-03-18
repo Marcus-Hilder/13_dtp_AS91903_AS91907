@@ -25,8 +25,11 @@
                                 <h3 class="h5 card-title mb-1">{{ day }}</h3>
                                 {%for id, items in club_dic.items()%}
                                     {%if items["club_day"] == count.value%}
-                                        <p class="card">{{items["club_name"]}}</p>
+                                    <div class="card card-body">
+                                        <p>{{items["club_name"]}}</p>
                                         <span class="badge text-bg-success">8/10</span>
+                                    </div>
+                                        
                                         
                                     {% endif %}
                                     

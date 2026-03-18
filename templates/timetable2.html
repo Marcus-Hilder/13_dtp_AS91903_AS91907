@@ -1,0 +1,35 @@
+{% extends 'Base.html' %}
+{% block content %}
+
+<div class="container-fluid">
+    {% set count = namespace(value=0) %}
+    <div class="row">
+        {% for day in cal_week %}
+            {% set count.value = count.value + 1 %}
+                <div class="card" style="min-width: 10rem; max-width: 12rem;">
+                    <div class="card-body">
+                        <table>
+                            <tbody>
+                                {%for id, items in club_dic.items()%}
+                                    {%if items["club_day"] == count.value%}
+                                        <tr>
+                                            <td>
+                                                <div class="card card-body">
+                                                <p>{{items["club_name"]}}</p>
+                                                <span class="badge text-bg-success">8/10</span>
+                                            </div>
+                                            </td>
+                                            
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+        {%endfor%}
+    </div>
+    
+</div>
+    
+{% endblock %}
