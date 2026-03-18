@@ -13,17 +13,32 @@ def timetable():
     page_title = "Westlake Clubs | Timetable"
     # Get year/month from URL params or default to today
     year = None
-    month = None
+    month = 6
     
     today_dt = datetime.now()
+    
     if not year:
         year = today_dt.year  
     if not month:
         month = today_dt.month
+    
     cal = calendar.monthcalendar(year, month)
     month_back = calendar.monthcalendar(year, month -1)
     month_forward = calendar.monthcalendar(year, month +1)
     month_name = calendar.month_name[month]
+    week_count = 0
+    today_week = None
+    # if in curent month then set week to today.
+    for week in cal:
+        for day in week:
+            if day == today_dt.day and month == today_dt.month:
+                today_week = week_count
+        week_count += 1
+    if today_week == None:
+        today_week = 0
+        
+
+    print(today_week)
     conn = get_db_conn()
     conn.row_factory = sqlite3.Row
     check = conn.execute("SELECT * FROM clubs")
@@ -31,12 +46,13 @@ def timetable():
     club_dic = {}
     
     for day in club_all:
-        club_name = day["club_name"] 
         club_dic[day["id"]] = {}
         club_dic[day["id"]]["club_day"] = int(day["club_day"])
-        club_dic[day["id"]]["club_name"] = club_name
+        club_dic[day["id"]]["club_slot"] = int(day["club_slot"])
+        club_dic[day["id"]]["club_name"] = day["club_name"]
         club_dic[day["id"]]["club_description"] = day["club_description"]
-    for i, a in club_dic.items():
-        print(i, ":",a)
+    for i, items in club_dic.items():
 
+        if items["club_day"] == 4:
+            print(items)
 timetable()
