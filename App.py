@@ -41,23 +41,30 @@ def timetable():
         week_count = 0
         today_week = 0
         # if in curent month then set week to today else defalt to the first week.
-        
+    yes = 0
+    
     cal = calendar.monthcalendar(year, month)
     for week in cal:
             for day in week:
                 if day == today_dt.day and month == today_dt.month:
                     today_week = week_count
+                    yes = True
+                    
             week_count += 1
+    
     # get the cal for the wanted week
-    cal_week = cal[today_week]
+    # cal_week = cal[today_week]
+    # if yes == True:
+    #     today_index = cal_week.index(today_dt.day)
+    # else:
+    #     today_index = cal_week[1]
+
+    # print(today_index)
     month_back = calendar.monthcalendar(year, month -1)
     month_forward = calendar.monthcalendar(year, month +1)
     month_name = calendar.month_name[month]
+    
     conn = get_db_conn()
-    
-    
-    
-    
 
     # club pull and write to dict
     conn.row_factory = sqlite3.Row

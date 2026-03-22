@@ -1,35 +1,60 @@
 {% extends 'Base.html' %}
 {% block content %}
 
-<div class="container-fluid">
+<div class="container-fluid px-3">
     {% set count = namespace(value=0) %}
-    <div class="row">
+    <div class="d-none d-md-flex flex-row gap-2 justify-content-center">
         {% for day in cal_week %}
             {% set count.value = count.value + 1 %}
-                <div class="card" style="min-width: 10rem; max-width: 12rem;">
-                    <div class="card-body">
-                        <table>
-                            <tbody>
-                                {%for id, items in club_dic.items()%}
-                                    {%if items["club_day"] == count.value%}
-                                        <tr>
-                                            <td>
-                                                <div class="card card-body">
-                                                <p>{{items["club_name"]}}</p>
-                                                <span class="badge text-bg-success">8/10</span>
-                                            </div>
-                                            </td>
-                                            
-                                        </tr>
-                                    {% endif %}
-                                {% endfor %}
-                            </tbody>
-                        </table>
+            <div class="flex-fill">
+                <div class="card h-100">
+                    <div class="card-header bg-success text-white text-center py-2">
+                        <strong>{{ day }}</strong>
+                    </div>
+                    <div class="card-body p-2 d-flex flex-column gap-2">
+                        {% set found = namespace(value=false) %}
+                        {% for id, items in club_dic.items() %}
+                            {% if items["club_day"] == count.value %}
+                                {% set found.value = true %}
+                                <div class="card card-body p-2">
+                                    <p class="mb-1 fw-semibold small">{{ items["club_name"] }}</p>
+                                    <span class="badge text-bg-success">8/10</span>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                        {% if not found.value %}
+                            <p class="text-muted small text-center mt-auto mb-auto">No clubs</p>
+                        {% endif %}
                     </div>
                 </div>
-        {%endfor%}
+            </div>
+        {% endfor %}
     </div>
-    
+
+    <!-- Mobile: show only today's card -->
+    <div class="d-md-none">
+        {% set count = namespace(value=0) %}
+        {% for day in cal_week %}
+            {% set count.value = count.value + 1 %}
+            {% if day == today %}
+                <div class="card">
+                    <div class="card-header bg-success text-white text-center py-2">
+                        <strong>{{ day }}</strong>
+                    </div>
+                    <div class="card-body p-2 d-flex flex-column gap-2">
+                        {% for id, items in club_dic.items() %}
+                            {% if items["club_day"] == count.value %}
+                                <div class="card card-body p-2">
+                                    <p class="mb-1 fw-semibold small">{{ items["club_name"] }}</p>
+                                    <span class="badge text-bg-success">8/10</span>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
 </div>
     
 {% endblock %}
