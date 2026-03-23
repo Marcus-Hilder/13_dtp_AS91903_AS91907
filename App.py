@@ -51,15 +51,16 @@ def timetable():
                     yes = True
                     
             week_count += 1
-    
-    # get the cal for the wanted week
-    # cal_week = cal[today_week]
-    # if yes == True:
-    #     today_index = cal_week.index(today_dt.day)
-    # else:
-    #     today_index = cal_week[1]
-
-    # print(today_index)
+   
+    #get the cal for the wanted week
+    cal_week = cal[today_week]
+    print(yes)
+    if yes == True:
+        today_index = cal_week.index(today_dt.day)
+        today = cal_week[today_index]
+    else: 
+        today = cal_week[1]
+   
     month_back = calendar.monthcalendar(year, month -1)
     month_forward = calendar.monthcalendar(year, month +1)
     month_name = calendar.month_name[month]
@@ -84,7 +85,7 @@ def timetable():
 
 
 
-    return render_template("timetable2.html",page_title=page_title,cal=cal,cal_week=cal_week,month_name=month_name,club_dic=club_dic)
+    return render_template("timetable2.html",page_title=page_title,cal=cal,cal_week=cal_week,month_name=month_name,club_dic=club_dic, today=today)
 
 @app.route('/sign_ups', methods=["GET", "POST"])
 def sign_ups():
