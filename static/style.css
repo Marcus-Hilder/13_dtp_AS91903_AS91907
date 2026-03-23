@@ -209,3 +209,7 @@ header img {
     position: absolute;
     transform-origin: center;
 }
+
+.overflow-hidden {
+    overflow: hidden;
+}
