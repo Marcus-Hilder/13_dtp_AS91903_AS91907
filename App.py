@@ -37,24 +37,22 @@ def timetable():
         year = today_dt.year  
     if not month:
         month = today_dt.month
+    cal = calendar.monthcalendar(year, month)
+    yes = 0
     if not week:
         week_count = 0
         today_week = 0
-        # if in curent month then set week to today else defalt to the first week.
-    yes = 0
-    
-    cal = calendar.monthcalendar(year, month)
-    for week in cal:
-            for day in week:
+        for for_week in cal:
+            for day in for_week:
                 if day == today_dt.day and month == today_dt.month:
-                    today_week = week_count
+                    week = week_count
                     yes = True
                     
             week_count += 1
+        # if in curent month then set week to today else defalt to the first week.
    
     #get the cal for the wanted week
-    cal_week = cal[today_week]
-    print(yes)
+    cal_week = cal[week]
     if yes == True:
         today_index = cal_week.index(today_dt.day)
         today = cal_week[today_index]
@@ -72,18 +70,16 @@ def timetable():
     check = conn.execute("SELECT * FROM clubs")
     club_all = check.fetchall()
     club_dic = {}
+    club_desc = {}
     for day in club_all:
         club_dic[day["id"]] = {}
         club_dic[day["id"]]["club_day"] = int(day["club_day"])
-        club_dic[day["id"]]["club_slot"] = int(day["club_slot"])
+        club_dic[day["id"]]["club_slot"] = day["club_slot"]
         club_dic[day["id"]]["club_name"] = day["club_name"]
         club_dic[day["id"]]["club_description"] = day["club_description"]
-    # for i, items in club_dic.items():
-    #     if items["club_day"] == 1:
-    #         print(items)
-
-
-
+        
+    for i, time in club_dic.items():
+        print(i,time["club_slot"])
 
     return render_template("timetable2.html",page_title=page_title,cal=cal,cal_week=cal_week,month_name=month_name,club_dic=club_dic, today=today)
 
