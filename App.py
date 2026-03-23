@@ -72,16 +72,19 @@ def timetable():
     check = conn.execute("SELECT * FROM clubs")
     club_all = check.fetchall()
     club_dic = {}
+    club_desc = {}
     for day in club_all:
         club_dic[day["id"]] = {}
         club_dic[day["id"]]["club_day"] = int(day["club_day"])
         club_dic[day["id"]]["club_slot"] = int(day["club_slot"])
         club_dic[day["id"]]["club_name"] = day["club_name"]
         club_dic[day["id"]]["club_description"] = day["club_description"]
-    # for i, items in club_dic.items():
-    #     if items["club_day"] == 1:
-    #         print(items)
 
+        
+    for i, items in club_dic.items():
+        if items["club_day"] == 1:
+            print(items)
+    
 
 
 
