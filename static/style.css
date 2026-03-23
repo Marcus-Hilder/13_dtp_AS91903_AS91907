@@ -210,3 +210,7 @@ header img {
     transform-origin: center;
 
 }
+
+.overflow-hidden {
+    overflow: hidden;
+}
