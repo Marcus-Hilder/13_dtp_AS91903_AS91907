@@ -18,8 +18,17 @@
                                 {% set found.value = true %}
                                 
                                 <div class="card card-body p-2">
-                                    <p class="mb-1 fw-semibold small">{{ items["club_name"] }}</p>
-                                    <span class="badge text-bg-success">8/10</span>
+                                    <!-- <div class="row"> -->
+                                        <span class="badge text-bg-success col m-2">{{items["club_slot"]}}</span>
+                                        <button class="card col card-body" type="button" 
+                                        data-bs-toggle="collapse" 
+                                        data-bs-target="#collapse-{{ items['club_name'].replace(' ', '-') }}"
+                                        aria-expanded="false">
+                                        <p class="mb-1 fw-semibold small">{{ items["club_name"] }}</p>
+                                        </button>
+                                    <!-- </div> -->
+                                    
+
                                 </div>
                             {% endif %}
                         {% endfor %}
@@ -31,43 +40,57 @@
             </div>
         {% endfor %}
     </div>
-
     <!-- Mobile: show only today's card -->
-    <div class="d-md-none">
-        {% set count = namespace(value=0) %}
-        {% for day in cal_week %}
-            {% set count.value = count.value + 1 %}
-            {% if day == today %}
-                <div class="card">
-                    <div class="card-header bg-success text-white text-center py-2">
-                        <strong>{{ day }}</strong>
-                    </div>
-                    <div class="card-body p-2 d-flex flex-column gap-2">
-                        {% for id, items in club_dic.items() %}
-                            {% if items["club_day"] == count.value %}
-                                <div class="card card-body p-2">
-                                    <button class="card card-body p-2" type="Radio" 
+<div class="d-md-none">
+    {% set count = namespace(value=0) %}
+    {% for day in cal_week %}
+        {% set count.value = count.value + 1 %}
+        {% if day == today %}
+            <div class="card">
+                <div class="card-header bg-success text-white text-center py-2">
+                    <strong>{{ day }}</strong>
+                </div>
+                <div class="card-body p-2 d-flex flex-column gap-2">
+                    {% for id, items in club_dic.items() %}
+                        {% if items["club_day"] == count.value %}
+                            <div class="card card-body p-2">
+                                <button class="card card-body p-2" type="button" 
                                     data-bs-toggle="collapse" 
-                                    data-bs-target="#collapseExample" 
-                                    aria-expanded="false" 
-                                    aria-controls="collapseExample">
+                                    data-bs-target="#collapse-{{ items['club_name'].replace(' ', '-') }}"
+                                    aria-expanded="false">
                                     <p class="mb-1 fw-semibold small">{{ items["club_name"] }}</p>
                                     <span class="badge text-bg-success">8/10</span>
-                                    </button>
-                                    
-                                </div>
-                            {% endif %}
-                        {% endfor %}
-                    </div>
+                                </button>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
                 </div>
-            {% endif %}
-        {% endfor %}
-    </div>
-</div> 
-<div class="collapse" id="collapseExample">
-  <div class="card card-body">
-    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-  </div>
+            </div>
+        {% endif %}
+    {% endfor %}
 </div>
+
+{% for id, items in club_dic.items() %}
+    <div class="collapse" id="collapse-{{ items['club_name'].replace(' ', '-') }}">
+        <div class="card card-body text-center">
+            <h2 class="h2 lead">{{items["club_name"]}}</h2>
+            {{ items["club_description"] }}
+        </div>
+    </div>
+{% endfor %}
+
+<script>
+    document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(button => {
+        button.addEventListener('click', () => {
+            const target = button.getAttribute('data-bs-target');
+            document.querySelectorAll('.collapse.show').forEach(openPanel => {
+                if ('#' + openPanel.id !== target) {
+                    bootstrap.Collapse.getInstance(openPanel).hide();
+                }
+            });
+        });
+    });
+</script>
+
 
 {% endblock %}
