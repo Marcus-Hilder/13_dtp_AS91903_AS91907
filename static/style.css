@@ -199,9 +199,14 @@ header img {
     height: 50%;
 }
 
-.form-image {
+.sign-up-image {
     transform-origin: center;
     transform: translateX(180%) translateY(50%);
+}
+
+.enquiry-image {
+    transform-origin: center;
+    transform: translateX(180%) translateY(30%);
 }
 
 .top_vector{
@@ -226,16 +231,19 @@ header img {
     transform-origin: center;
 }
 
-.scroll_container {
+.scroll-container {
     overflow-y: auto;
     overflow-x: hidden;
 }
 
-.scroll_container input {
+.scroll-container textarea {
     background-color: #f0f0f0;
     border-style: none;
-    border-radius: 50pt;
+    border-radius: 10pt;
+    height: 300px;
+    resize: none;
 }
 
-
-
+.enquiry-notif {
+    background-color: #fff38a;
+}
