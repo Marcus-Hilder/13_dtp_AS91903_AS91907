@@ -1,6 +1,12 @@
 {% extends 'Base.html' %}
 {% block content %}
-
+<div class="container-fluid px-3 text-center">
+    <div class="row">
+        <div class="col">
+            <span class="badge text-bg-primary col p-3 m-2"><h3 class="h3">16-21-231</h3></span>
+        </div>
+    </div>
+</div>
 <div class="container-fluid px-3">
     {% set count = namespace(value=0) %}
     <div class="d-none d-md-flex flex-row gap-2 justify-content-center">
@@ -58,7 +64,7 @@
                                 <div class="container-fluid">
                                 <div class="row ">
                                 <div class="col ">
-                                    <span class="badge  text-bg-primary col m-2">{{items["club_slot"]}}</span>
+                                    <span class="badge text-bg-primary col m-2">{{items["club_slot"]}}</span>
                                 </div>
                                 <div class="col-8">
                                     <button class="card  card-body p-2" type="button" 
