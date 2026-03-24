@@ -115,7 +115,21 @@ def sign_ups():
 @app.route('/enquiries')
 def enquiries():
     """Enquiries webpage"""
-    page_title = "Westlake Clubs - Sign Ups"
+    page_title = "Westlake Clubs - Enquiries"
+
+    if request.method == "POST":
+        email = request.form.get("email").strip()
+        enquiry = request.form.get("enquiry").strip()
+        
+        conn = get_db_conn()
+        conn.row_factory = sqlite3.Row
+
+        cur = conn.cursor()
+        cur.execute("INSERT INTO enquiries (email, enquiry) VALUES (?, ?)", (email, enquiry))
+        conn.commit()
+        conn.close()
+
+        return render_template("enquiries.html", page_title=page_title, submit=True, active_page="enquiries")
 
     return render_template("enquiries.html", page_title=page_title, active_page="enquiries")
 
