@@ -25,32 +25,32 @@
                 <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-2">
                     <li class="nav-item mx-1 my-1">
                         <a href="{{ url_for('index') }}">
-                            <button type="button" class="btn nav-btn-consistent w-100">Home</button>
+                            <button type="button" class="btn {% if active_page == 'index' %}nav-btn-active{% else %}nav-btn-consistent{% endif %} w-100">Home</button>
                         </a>
                     </li>
                     <li class="nav-item mx-1 my-1">
                         <a href="{{ url_for('sign_ups') }}">
-                            <button type="button" class="btn nav-btn-consistent w-100">Sign Ups</button>
+                            <button type="button" class="btn {% if active_page == 'sign_ups' %}nav-btn-active{% else %}nav-btn-consistent{% endif %} w-100">Sign Ups</button>
                         </a>
                     </li>
                     <li class="nav-item mx-1 my-1">
                         <a href="{{ url_for('enquiries') }}">
-                            <button type="button" class="btn nav-btn-consistent w-100">Enquiries</button>
+                            <button type="button" class="btn {% if active_page == 'enquiries' %}nav-btn-active{% else %}nav-btn-consistent{% endif %} w-100">Enquiries</button>
                         </a>
                     </li>
                     <li class="nav-item mx-1 my-1">
                         <a href="{{ url_for('timetable') }}">
-                            <button type="button" class="btn nav-btn-consistent w-100">Timetable</button>
+                            <button type="button" class="btn {% if active_page == 'timetable' %}nav-btn-active{% else %}nav-btn-consistent{% endif %} w-100">Timetable</button>
                         </a>
                     </li>
                     <li class="nav-item mx-1 my-1">
                         <a href="{{ url_for('create_club') }}">
-                            <button type="button" class="btn nav-btn-consistent w-100">Create Club</button>
+                            <button type="button" class="btn {% if active_page == 'create_club' %}nav-btn-active{% else %}nav-btn-consistent{% endif %} w-100">Create Club</button>
                         </a>
                     </li>
                     <li class="nav-item mx-1 my-1">
                         <a href="{{ url_for('review') }}">
-                            <button type="button" class="btn nav-btn-consistent w-100">Review</button>
+                            <button type="button" class="btn {% if active_page == 'review' %}nav-btn-active{% else %}nav-btn-consistent{% endif %} w-100">Review</button>
                         </a>
                     </li>
                 </ul>
