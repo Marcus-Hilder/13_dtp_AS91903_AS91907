@@ -16,9 +16,19 @@
                         {% for id, items in club_dic.items() %}
                             {% if items["club_day"] == count.value %}
                                 {% set found.value = true %}
+                                
                                 <div class="card card-body p-2">
-                                    <p class="mb-1 fw-semibold small">{{ items["club_name"] }}</p>
-                                    <span class="badge text-bg-success">8/10</span>
+                                    <!-- <div class="row"> -->
+                                        <span class="badge text-bg-success col m-2">{{items["club_slot"]}}</span>
+                                        <button class="card col card-body" type="button" 
+                                        data-bs-toggle="collapse" 
+                                        data-bs-target="#collapse-{{ items['club_name'].replace(' ', '-') }}"
+                                        aria-expanded="false">
+                                        <p class="mb-1 fw-semibold small">{{ items["club_name"] }}</p>
+                                        </button>
+                                    <!-- </div> -->
+                                    
+
                                 </div>
                             {% endif %}
                         {% endfor %}
@@ -30,47 +40,69 @@
             </div>
         {% endfor %}
     </div>
-
     <!-- Mobile: show only today's card -->
-    <div class="d-md-none">
-        {% set count = namespace(value=0) %}
-        {% for day in cal_week %}
-            {% set count.value = count.value + 1 %}
-            {% if day == today %}
-                <div class="card">
-                    <div class="card-header bg-success text-white text-center py-2">
-                        <strong>{{ day }}</strong>
-                    </div>
-                    <div class="card-body p-2 d-flex flex-column gap-2">
-                        {% for id, items in club_dic.items() %}
-                            {% if items["club_day"] == count.value %}
-                                <div class="card card-body p-2">
-                                    <p class="mb-1 fw-semibold small">{{ items["club_name"] }}</p>
-                                    <span class="badge text-bg-success">8/10</span>
-                                </div>
-                            {% endif %}
-                        {% endfor %}
-                    </div>
+<div class="d-md-none">
+    {% set count = namespace(value=0) %}
+    {% for day in cal_week %}
+        {% set count.value = count.value + 1 %}
+        {% if day == today %}
+            <div class="card">
+                <div class="card-header bg-success text-white text-center py-2">
+                    <strong>{{ day }}</strong>
                 </div>
-            {% endif %}
-        {% endfor %}
-    </div>
+                <div class="card-body p-2 d-flex flex-column gap-2">
+                    {% for id, items in club_dic.items() %}
+                        {% if items["club_day"] == count.value %}
+                        
+                            <div class="card card-body p-2">
+                                <div class="container-fluid">
+                                <div class="row ">
+                                <div class="col ">
+                                    <span class="badge  text-bg-primary col m-2">{{items["club_slot"]}}</span>
+                                </div>
+                                <div class="col-8">
+                                    <button class="card  card-body p-2" type="button" 
+                                    data-bs-toggle="collapse" 
+                                    data-bs-target="#collapse-{{ items['club_name'].replace(' ', '-') }}"
+                                    aria-expanded="false">
+                                    <p class="mb-1 fw-semibold small">{{ items["club_name"] }}</p>
+                                    
+                                </button>
+                                </div>
+                                </div>
+                                </div>
+                                
+                            
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
 </div>
 
-<button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>
+{% for id, items in club_dic.items() %}
+    <div class="collapse" id="collapse-{{ items['club_name'].replace(' ', '-') }}">
+        <div class="card card-body text-center">
+            <h2 class="h2 lead">{{items["club_name"]}}</h2>
+            {{ items["club_description"] }}
+        </div>
+    </div>
+{% endfor %}
 
-<div class="toast-container position-fixed bottom-0 end-0 p-3">
-  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="toast-header">
-      <img src="..." class="rounded me-2" alt="...">
-      <strong class="me-auto">Bootstrap</strong>
-      <small>11 mins ago</small>
-      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-    </div>
-    <div class="toast-body">
-      Hello, world! This is a toast message.
-    </div>
-  </div>
-</div>
-<script src="script.js" defer></script>   
+<script>
+    document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(button => {
+        button.addEventListener('click', () => {
+            const target = button.getAttribute('data-bs-target');
+            document.querySelectorAll('.collapse.show').forEach(openPanel => {
+                if ('#' + openPanel.id !== target) {
+                    bootstrap.Collapse.getInstance(openPanel).hide();
+                }
+            });
+        });
+    });
+</script>
+
+
 {% endblock %}
