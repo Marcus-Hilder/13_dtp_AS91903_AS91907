@@ -208,7 +208,10 @@ header img {
     z-index: -1;
     position: absolute;
     transform-origin: center;
+}
 
+.overflow-hidden {
+    overflow: hidden;
 }
 
 .overflow-hidden {
