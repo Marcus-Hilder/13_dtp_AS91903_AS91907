@@ -80,7 +80,7 @@ def timetable():
         
     
 
-    return render_template("timetable2.html",page_title=page_title,cal=cal,cal_week=cal_week,month_name=month_name,club_dic=club_dic, today=today)
+    return render_template("timetable2.html",page_title=page_title,cal=cal,cal_week=cal_week,month_name=month_name,club_dic=club_dic, today=today,active_page="timetable")
 
 @app.route('/sign_ups', methods=["GET", "POST"])
 def sign_ups():

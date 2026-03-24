@@ -41,7 +41,7 @@
             </div>
         {% endfor %}
     </div>
-    <!-- Mobile: show only today's card -->
+<!-- Mobile: show only today's card -->
 <div class="d-md-none">
     {% set count = namespace(value=0) %}
     {% for day in cal_week %}
@@ -49,8 +49,7 @@
         {% if day == today %}
             <div class="card">
                 <div class="card-header bg-success text-white text-center py-2">
-                    
-                    <span class="badge text-bg-primary col p-1 "><strong>Upcoming events<br>{{ day }}</strong></span>
+                    <span class="badge text-bg-danger col p-1 p-2 "><strong>Upcoming events<br> <br>{{ day }} of {{ month_name }}</strong></span>
                 </div>
                 <div class="card-body p-2 d-flex flex-column gap-2">
                     {% for id, items in club_dic.items() %}
@@ -58,24 +57,22 @@
                         
                             <div class="card card-body p-2">
                                 <div class="container-fluid">
-                                <div class="row ">
-                                <div class="col ">
-                                    <span class="badge text-bg-primary col m-2">{{items["club_slot"]}}</span>
+                                    <div class="row ">
+                                        <div class="col ">
+                                            <span class="badge text-bg-danger col m-2">{{items["club_slot"]}}</span>
+                                        </div>
+                                        <div class="col-8">
+                                            <button class="card card-body p-2" type="button" 
+                                            data-bs-toggle="collapse" 
+                                            data-bs-target="#collapse-{{ items['club_name'].replace(' ', '-') }}"
+                                            aria-expanded="false">
+                                                <p class="mb-1 fw-semibold small">{{ items["club_name"] }}</p>
+                                            </button>
+                                            
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-8">
-                                    <button class="card  card-body p-2" type="button" 
-                                    data-bs-toggle="collapse" 
-                                    data-bs-target="#collapse-{{ items['club_name'].replace(' ', '-') }}"
-                                    aria-expanded="false">
-                                    <p class="mb-1 fw-semibold small">{{ items["club_name"] }}</p>
-                                    
-                                </button>
-                                </div>
-                                </div>
-                                </div>
-                                
-                            
-                        </div>
+                            </div>
                         {% endif %}
                     {% endfor %}
                 </div>
@@ -86,10 +83,16 @@
 
 {% for id, items in club_dic.items() %}
     <div class="collapse" id="collapse-{{ items['club_name'].replace(' ', '-') }}">
-        <div class="card card-body text-center">
-            <h2 class="h2 lead">{{items["club_name"]}}</h2>
-            {{ items["club_description"] }}
+        <div class="container text-center">
+            <div class="col-11 col-md-9 col-lg-6 mt-4 mx-auto">
+                <div class="card card-body text-center">
+                    <span class="badge text-bg-danger col m-2">{{items["club_name"]}}</span>
+                    
+                    {{ items["club_description"] }}
+                </div>
+            </div>
         </div>
+        
     </div>
 {% endfor %}
 
