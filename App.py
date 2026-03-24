@@ -22,7 +22,7 @@ def index():
     page_title = "Home"
     """main home page """
     
-    return render_template("index.html", page_title=page_title)
+    return render_template("index.html", page_title=page_title, active_page="index")
 
 @app.route('/timetable')
 def timetable():
@@ -103,21 +103,21 @@ def sign_ups():
         conn.commit()
         conn.close()
 
-        return render_template("sign_ups.html", page_title=page_title, clubs=clubs)
+        return render_template("sign_ups.html", page_title=page_title, clubs=clubs, active_page="sign_ups")
 
 
     conn = get_db_conn()
     clubs = conn.execute('SELECT * FROM clubs ORDER BY club_name ASC').fetchall()
     conn.close()
 
-    return render_template("sign_ups.html", page_title=page_title, clubs=clubs)
+    return render_template("sign_ups.html", page_title=page_title, clubs=clubs, active_page="sign_ups")
 
 @app.route('/enquiries')
 def enquiries():
     """Enquiries webpage"""
     page_title = "Westlake Clubs - Sign Ups"
 
-    return render_template("enquiries.html", page_title=page_title)
+    return render_template("enquiries.html", page_title=page_title, active_page="enquiries")
 
 
 
@@ -126,14 +126,14 @@ def create_club():
     """Create club webpage"""
     page_title = "Westlake Clubs - Create Club"
 
-    return render_template("create_club.html", page_title=page_title)
+    return render_template("create_club.html", page_title=page_title, active_page="create_club")
 
 @app.route('/review')
 def review():
     """Review webpage"""
     page_title = "Westlake Clubs - Review"
 
-    return render_template("review.html", page_title=page_title)
+    return render_template("review.html", page_title=page_title, active_page="review")
 
 if __name__ == '__main__':
     app.run(debug=True, port=8080)

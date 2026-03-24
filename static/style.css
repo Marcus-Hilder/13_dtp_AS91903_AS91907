@@ -121,6 +121,21 @@ body {
     color: #fff;
 }
 
+.nav-btn-active {
+    min-width: 110px;
+    font-size: 1rem;
+    font-family: Helvetica, Arial, sans-serif;
+    background-color: #830B22;
+    border-color: #FFFFFF;
+    color: #fff;
+}
+.nav-btn-active:hover,
+.nav-btn-active:focus {
+	background-color: #830B22;
+    border-color: #FFFFFF;
+    color: #fff;
+}
+
 .custom-footer {
     background-color: #165740 !important;
 }
@@ -161,6 +176,7 @@ header img {
 
 .custom-page-header {
     background-color: #C60C30 !important;
+    font-size: 2vw;
 }
 
 .bg-grey {
@@ -210,10 +226,25 @@ header img {
     transform-origin: center;
 }
 
-.overflow-hidden {
-    overflow: hidden;
+.scroll_container {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.scroll_container input {
+    background-color: #f0f0f0;
+    border-style: none;
+    border-radius: 50pt;
 }
 
 .overflow-hidden {
     overflow: hidden;
+}
+
+.vector_background{
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('/static/redvector2.png');
 }
