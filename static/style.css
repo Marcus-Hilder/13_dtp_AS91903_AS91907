@@ -210,14 +210,5 @@ header img {
     transform-origin: center;
 }
 
-.overflow-hidden {
-    overflow: hidden;
-}
 
-.vector_background{
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-image: url('/static/redvector2.png');
-}
+
