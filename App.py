@@ -78,8 +78,7 @@ def timetable():
         club_dic[day["id"]]["club_name"] = day["club_name"]
         club_dic[day["id"]]["club_description"] = day["club_description"]
         
-    # for i, time in club_dic.items():
-    #     print(i,time["club_slot"])
+    
 
     return render_template("timetable2.html",page_title=page_title,cal=cal,cal_week=cal_week,month_name=month_name,club_dic=club_dic, today=today)
 
