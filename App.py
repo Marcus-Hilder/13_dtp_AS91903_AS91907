@@ -38,10 +38,9 @@ def timetable():
     if not month:
         month = today_dt.month
     cal = calendar.monthcalendar(year, month)
-    yes = 0
+    yes = False
     if not week:
         week_count = 0
-        today_week = 0
         for for_week in cal:
             for day in for_week:
                 if day == today_dt.day and month == today_dt.month:
@@ -61,16 +60,17 @@ def timetable():
    
     month_back = calendar.monthcalendar(year, month -1)
     month_forward = calendar.monthcalendar(year, month +1)
+    
     month_name = calendar.month_name[month]
     
     conn = get_db_conn()
 
-    # club pull and write to dict
+    # club all pull and write to dict
     conn.row_factory = sqlite3.Row
     check = conn.execute("SELECT * FROM clubs")
     club_all = check.fetchall()
     club_dic = {}
-    club_desc = {}
+    
     for day in club_all:
         club_dic[day["id"]] = {}
         club_dic[day["id"]]["club_day"] = int(day["club_day"])
@@ -78,8 +78,8 @@ def timetable():
         club_dic[day["id"]]["club_name"] = day["club_name"]
         club_dic[day["id"]]["club_description"] = day["club_description"]
         
-    for i, time in club_dic.items():
-        print(i,time["club_slot"])
+    # for i, time in club_dic.items():
+    #     print(i,time["club_slot"])
 
     return render_template("timetable2.html",page_title=page_title,cal=cal,cal_week=cal_week,month_name=month_name,club_dic=club_dic, today=today)
 
