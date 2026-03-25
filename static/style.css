@@ -81,6 +81,8 @@
     --wl-red:   #c0392b;
     --wl-green: #1a5c2a;
     --wl-red-hover: #96281b;
+    --bs-primary: #0d6efd;
+/* what tf  */
 }
 
 body {
@@ -247,3 +249,5 @@ header img {
 .enquiry-notif {
     background-color: #fff38a;
 }
+
+
