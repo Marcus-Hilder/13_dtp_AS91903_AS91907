@@ -3,16 +3,25 @@
 {% block content %}
 
 <div class="py-2">
-    <h1 class="col-6 col-md-3 mx-auto py-2 mt-8 text-center text-light rounded custom-page-header">
+
+    <h1 class="col-8 col-md-6 col-lg-4 col-xl-3 mx-auto py-2 custom-mt custom-mb text-center text-light rounded custom-page-header">
         Enquiries
     </h1>
 
     <img class="sign_ups_redvector w-100" src="/static/RedVector1.png" alt="Red Vector">
 
-    <div class="card col-7 mx-auto mt-8 mb-8">
+    {% if submit == True %}
+    <div class="col-6 col-xl-3 mx-auto enquiry-notif fs-5 text-light mb-3 text-center">
+        <p>Your enquiry has been sent through.</p>
+    </div>
+    {% endif %}
+
+    <div class="card col-10 col-xl-7 mx-auto custom-mb">
         <div class="card-body p-5">
+
             <h5 class="card-title">Enquiries</h5>
             <h6 class="card-subtitle mb-2 text-body-secondary">Fill out this form to sign up for a club</h6>
+
             <form method="POST" action="/enquiries">
                 <div class="my-4">
                     <p class="card-text">Email</p>
@@ -21,12 +30,6 @@
                 <div class="my-4 scroll-container">
                     <textarea class="col-12 col-xxl-6 col-sm-10 px-3" placeholder="Max 300 words..." name="enquiry"></textarea>
                 </div>
-
-            {% if submit == True %}
-            <div class="col-6 enquiry-notif">
-                <p>Your enquiry has been sent through.</p>
-            </div>
-            {% endif %}
 
             <button type="submit" class="btn custom-button">Send</button>
 
