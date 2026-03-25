@@ -163,9 +163,22 @@ def create_club():
 @app.route('/review')
 def review():
     """Review webpage"""
-    page_title = "Westlake Clubs - Review"
-
-    return render_template("review.html", page_title=page_title, active_page="review")
+    conn = get_db_conn()
+    clubs = conn.execute('SELECT * FROM clubs ORDER BY club_name ASC').fetchall()
+    if request.method == "POST":
+        full_name = request.form.get("full_name").strip()
+        email = request.form.get("email").strip()
+        club = request.form.get("club").strip()
+        club_experince = request.form.get("club_experince").strip()
+        club_Rating = request.form.get("club_Rating").strip()
+        print(club)
+        cur = conn.cursor()
+        cur.execute("INSERT INTO review (full_name, email, club, why_desc, availability_desc) VALUES (?, ?, ?, ?, ?)", (full_name, email, club, why_desc, availability_desc))
+        conn.commit()
+        conn.close()
+        return render_template("review.html", page_title="Westlake Clubs - Review", clubs=clubs, active_page="sign_ups")
+    conn.close()
+    return render_template("review.html", page_title="Westlake Clubs - Review", active_page="review",clubs=clubs)
 
 if __name__ == '__main__':
     app.run(debug=True, port=8080)
