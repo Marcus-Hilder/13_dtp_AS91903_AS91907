@@ -252,4 +252,8 @@ header img {
     border-radius: 10px;
 }
 
-
+.enquiry-notif p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
