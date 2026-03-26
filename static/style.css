@@ -39,7 +39,7 @@
 
 .overlay{
     top: 10%;
-    left: 10%;
+    left: 5%;
     position :absolute;
     color: black;
     font-size: 2.9vw;
@@ -89,12 +89,12 @@ body {
 	font-family: Helvetica, Arial, sans-serif;
 }
 
-.mt-8 {
-    margin-top: 8rem !important;
+.custom-mt {
+    margin-top: 4vw !important;
 }
 
-.mb-8 {
-    margin-bottom: 8rem !important;
+.custom-mb {
+    margin-bottom: 4vw !important;
 }
 
 .navbar-wl {
@@ -178,7 +178,6 @@ header img {
 
 .custom-page-header {
     background-color: #C60C30 !important;
-    font-size: 2vw;
 }
 
 .bg-grey {
@@ -227,10 +226,12 @@ header img {
     transform: translateX(53.85%) translateY(0);
 }
 
-.sign_ups_redvector {
-    z-index: -1;
+.vector-container-1 {
     position: absolute;
-    transform-origin: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
 }
 
 .scroll-container {
@@ -247,7 +248,79 @@ header img {
 }
 
 .enquiry-notif {
-    background-color: #fff38a;
+    background-color: var(--wl-green);
+    border-radius: 10px;
 }
 
+/* ── Star Rating ── */
+.star-cb-group {
+  font-size: 0;
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
 
+.star-cb-group * {
+  font-size: 1rem;
+}
+
+.star-cb-group > input {
+  display: none;
+}
+
+.star-cb-group > input + label {
+  display: inline-block;
+  overflow: hidden;
+  text-indent: 9999px;
+  width: 1.5em;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.star-cb-group > input + label:before {
+  display: inline-block;
+  text-indent: -9999px;
+  content: '\2606';
+  color: #888;
+  font-size: 1.5rem;
+}
+
+.star-cb-group > input:checked ~ label:before,
+.star-cb-group > input + label:hover ~ label:before,
+.star-cb-group > input + label:hover:before {
+  content: '\2605';
+  color: #ee5522;
+  text-shadow: 0 0 1px #333;
+}
+
+.star-cb-group > .star-cb-clear + label {
+  text-indent: -9999px;
+  width: 0.5em;
+  margin-left: -0.5em;
+}
+
+.star-cb-group > .star-cb-clear + label:before {
+  width: 0.5em;
+}
+
+.star-cb-group:hover > input + label:before {
+  content: '\2606';
+  color: #888;
+  text-shadow: none;
+}
+
+.star-cb-group:hover > input + label:hover ~ label:before,
+.star-cb-group:hover > input + label:hover:before {
+  content: '\2605';
+  color: #ee5522;
+  text-shadow: 0 0 1px #333;
+}
+
+#log {
+  text-align: center;
+  background: transparent;
+}
+.enquiry-notif p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

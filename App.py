@@ -121,7 +121,7 @@ def sign_ups():
         conn.commit()
         conn.close()
 
-        return render_template("sign_ups.html", page_title=page_title, clubs=clubs, active_page="sign_ups")
+        return render_template("sign_ups.html", page_title=page_title, clubs=clubs, active_page="sign_ups", submit=True)
 
 
     conn = get_db_conn()
@@ -130,7 +130,7 @@ def sign_ups():
 
     return render_template("sign_ups.html", page_title=page_title, clubs=clubs, active_page="sign_ups")
 
-@app.route('/enquiries')
+@app.route('/enquiries', methods=["GET", "POST"])
 def enquiries():
     """Enquiries webpage"""
     page_title = "Westlake Clubs - Enquiries"
@@ -163,9 +163,27 @@ def create_club():
 @app.route('/review')
 def review():
     """Review webpage"""
-    page_title = "Westlake Clubs - Review"
-
-    return render_template("review.html", page_title=page_title, active_page="review")
+    conn = get_db_conn()
+    clubs = conn.execute('SELECT * FROM clubs ORDER BY club_name ASC').fetchall()
+#    finish sql statment evry thig shoild work
+    if request.method == "POST":
+        reviewer_name = request.form.get("reviewer_name").strip()
+        email = request.form.get("email").strip()
+        club = request.form.get("club").strip()
+        club_experince = request.form.get("club_experince").strip()
+        club_Rating = request.form.get("rating").strip()
+        print(club)
+        cur = conn.cursor()
+        for i in clubs:
+            if i['club_name'] == club:
+                i['id'] = club
+                break
+        cur.execute("INSERT INTO review (reviewer_name, club, why_desc, availability_desc) VALUES (?, ?, ?, ?, ?)", (full_name, email, club, why_desc, availability_desc))
+        conn.commit()
+        conn.close()
+        return render_template("review.html", page_title="Westlake Clubs - Review", clubs=clubs, active_page="sign_ups")
+    conn.close()
+    return render_template("review.html", page_title="Westlake Clubs - Review", active_page="review",clubs=clubs)
 
 if __name__ == '__main__':
     app.run(debug=True, port=8080)
