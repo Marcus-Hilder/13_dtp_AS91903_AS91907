@@ -89,12 +89,12 @@ body {
 	font-family: Helvetica, Arial, sans-serif;
 }
 
-.mt-8 {
-    margin-top: 8rem !important;
+.custom-mt {
+    margin-top: 4vw !important;
 }
 
-.mb-8 {
-    margin-bottom: 8rem !important;
+.custom-mb {
+    margin-bottom: 4vw !important;
 }
 
 .navbar-wl {
@@ -178,7 +178,6 @@ header img {
 
 .custom-page-header {
     background-color: #C60C30 !important;
-    font-size: 2vw;
 }
 
 .bg-grey {
@@ -227,10 +226,12 @@ header img {
     transform: translateX(53.85%) translateY(0);
 }
 
-.sign_ups_redvector {
-    z-index: -1;
+.vector-container-1 {
     position: absolute;
-    transform-origin: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
 }
 
 .scroll-container {
@@ -247,7 +248,8 @@ header img {
 }
 
 .enquiry-notif {
-    background-color: #fff38a;
+    background-color: var(--wl-green);
+    border-radius: 10px;
 }
 
 /* ── Star Rating ── */
@@ -316,4 +318,9 @@ header img {
 #log {
   text-align: center;
   background: transparent;
+}
+.enquiry-notif p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

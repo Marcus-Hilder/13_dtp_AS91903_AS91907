@@ -121,7 +121,7 @@ def sign_ups():
         conn.commit()
         conn.close()
 
-        return render_template("sign_ups.html", page_title=page_title, clubs=clubs, active_page="sign_ups")
+        return render_template("sign_ups.html", page_title=page_title, clubs=clubs, active_page="sign_ups", submit=True)
 
 
     conn = get_db_conn()
@@ -130,7 +130,7 @@ def sign_ups():
 
     return render_template("sign_ups.html", page_title=page_title, clubs=clubs, active_page="sign_ups")
 
-@app.route('/enquiries')
+@app.route('/enquiries', methods=["GET", "POST"])
 def enquiries():
     """Enquiries webpage"""
     page_title = "Westlake Clubs - Enquiries"
