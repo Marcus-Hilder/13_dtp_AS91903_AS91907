@@ -226,11 +226,12 @@ header img {
     transform: translateX(53.85%) translateY(0);
 }
 
-.sign_ups_redvector {
-    z-index: -1;
+.vector-container-1 {
     position: absolute;
-    display: flexbox;
+    display: flex;
+    justify-content: center;
     align-items: center;
+    z-index: -1;
 }
 
 .scroll-container {
