@@ -165,15 +165,20 @@ def review():
     """Review webpage"""
     conn = get_db_conn()
     clubs = conn.execute('SELECT * FROM clubs ORDER BY club_name ASC').fetchall()
+#    finish sql statment evry thig shoild work
     if request.method == "POST":
-        full_name = request.form.get("full_name").strip()
+        reviewer_name = request.form.get("reviewer_name").strip()
         email = request.form.get("email").strip()
         club = request.form.get("club").strip()
         club_experince = request.form.get("club_experince").strip()
-        club_Rating = request.form.get("club_Rating").strip()
+        club_Rating = request.form.get("rating").strip()
         print(club)
         cur = conn.cursor()
-        cur.execute("INSERT INTO review (full_name, email, club, why_desc, availability_desc) VALUES (?, ?, ?, ?, ?)", (full_name, email, club, why_desc, availability_desc))
+        for i in clubs:
+            if i['club_name'] == club:
+                i['id'] = club
+                break
+        cur.execute("INSERT INTO review (reviewer_name, club, why_desc, availability_desc) VALUES (?, ?, ?, ?, ?)", (full_name, email, club, why_desc, availability_desc))
         conn.commit()
         conn.close()
         return render_template("review.html", page_title="Westlake Clubs - Review", clubs=clubs, active_page="sign_ups")
