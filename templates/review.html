@@ -1,1 +1,54 @@
 {% extends 'base.html' %}
+
+{% block content %}
+
+<div class="py-2">
+    <h1 class="col-6 col-md-3 mx-auto py-2 mt-8 text-center text-light rounded custom-page-header">
+        Review a club
+    </h1>
+
+    <img class="sign_ups_redvector w-100" src="/static/RedVector1.png" alt="Red Vector">
+
+    <div class="card col-7 mx-auto mt-8 mb-8">
+        <div class="card-body p-5">
+            <h5 class="card-title">Sign Ups</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">Fill out this form to sign up for a club</h6>
+            <form method="POST" action="/sign_ups">
+                <div class="my-4">
+                    <p class="card-text">Full Name</p>
+                    <input class="col-12 col-xxl-6 col-sm-10 px-3 custom-input-bar" type="text" name="full_name" id="">
+                </div>
+                <div class="my-4">
+                    <p class="card-text">Email</p>
+                    <input class="col-12 col-xxl-6 col-sm-10 px-3 custom-input-bar" type="text" name="email" id="">
+                </div>
+                <div class="my-4">
+                    <p class="card-text">Select a Club</p>
+                    <select class="col-12 col-xxl-6 col-sm-10 px-3 py-1 custom-input-bar" name="club" id="club">
+                        {% for club in clubs %}
+                            <option value="{{ club.club_name.strip().lower().replace(' ', '-') }}" class="dropdown-item custom-dropdown-item-Ryan py-3">{{club.club_name}}</a>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="my-4">
+                    <p class="card-text">How was your experince in this club</p>
+                    <input class="col-12 col-xxl-6 col-sm-10 px-3 custom-input-bar" type="text" name="club_experince" id="">
+                </div>
+                <div class="my-4">
+                    <p class="card-text">Rating</p>
+                    <input class="col-12 col-xxl-6 col-sm-10 px-3 custom-input-bar" type="text" name="club_Rating" id="">
+                </div>
+
+            <button type="submit" class="btn custom-button">Submit</button>
+
+            </form>
+        </div>
+
+        <div class="d-none d-xxl-block col-4 position-absolute sign-up-image">
+            <img class="w-100" src="/static/westlakeshield.png" alt="">
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
