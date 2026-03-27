@@ -160,28 +160,35 @@ def create_club():
 
     return render_template("create_club.html", page_title=page_title, active_page="create_club")
 
-@app.route('/review')
+@app.route('/review', methods=["GET", "POST"])
 def review():
     """Review webpage"""
     conn = get_db_conn()
     clubs = conn.execute('SELECT * FROM clubs ORDER BY club_name ASC').fetchall()
+    # for i in clubs:
+    #         print(i['id'])
+    #         if i['club_name'] == "Running Club":
+    #             print("helloworld")
+
 #    finish sql statment evry thig shoild work
     if request.method == "POST":
-        reviewer_name = request.form.get("reviewer_name").strip()
-        email = request.form.get("email").strip()
-        club = request.form.get("club").strip()
-        club_experince = request.form.get("club_experince").strip()
-        club_Rating = request.form.get("rating").strip()
-        print(club)
+        reviewer_name = request.form.get("full_name")
+        email = request.form.get("email")
+        club = request.form.get("club")
+        club_experince = request.form.get("club_experince")
+        club_Rating = request.form.get("rating")
         cur = conn.cursor()
+        print(club['club_name'])
         for i in clubs:
+            print(i['id'], i['club_name'] == club)
             if i['club_name'] == club:
                 i['id'] = club
                 break
-        cur.execute("INSERT INTO review (reviewer_name, club, why_desc, availability_desc) VALUES (?, ?, ?, ?, ?)", (full_name, email, club, why_desc, availability_desc))
+        cur.execute("INSERT INTO club_review (reviewer_name, club_id, club_experince, club_Rating) VALUES (?, ?, ?, ?)",\
+(reviewer_name, club, club_experince, club_Rating))
         conn.commit()
         conn.close()
-        return render_template("review.html", page_title="Westlake Clubs - Review", clubs=clubs, active_page="sign_ups")
+        return render_template("review.html", page_title="Westlake Clubs - Review", clubs=clubs, active_page="review")
     conn.close()
     return render_template("review.html", page_title="Westlake Clubs - Review", active_page="review",clubs=clubs)
 

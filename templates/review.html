@@ -7,13 +7,13 @@
         Review a club
     </h1>
 
-    <img class="sign_ups_redvector w-100" src="/static/RedVector1.png" alt="Red Vector">
+    <img class="sign_ups_redvector vector-container-1 w-100" src="/static/RedVector1.png" alt="Red Vector">
 
     <div class="card col-7 mx-auto mt-8 mb-8">
         <div class="card-body p-5">
             <h5 class="card-title">Sign Ups</h5>
             <h6 class="card-subtitle mb-2 text-body-secondary">Fill out this form to sign up for a club</h6>
-            <form method="POST" action="/sign_ups">
+            <form method="POST" action="/review">
                 <div class="my-4">
                     <p class="card-text">Full Name</p>
                     <input class="col-12 col-xxl-6 col-sm-10 px-3 custom-input-bar" type="text" name="full_name" id="">
@@ -26,7 +26,7 @@
                     <p class="card-text">Select a Club</p>
                     <select class="col-12 col-xxl-6 col-sm-10 px-3 py-1 custom-input-bar" name="club" id="club">
                         {% for club in clubs %}
-                            <option value="{{club}}" class="dropdown-item custom-dropdown-item-Ryan py-3">{{club.club_name}}</a>
+                            <option value="{{club.club_name}}" class="dropdown-item custom-dropdown-item-Ryan py-3">{{club.club_name}}</a>
                         {% endfor %}
                     </select>
                 </div>
