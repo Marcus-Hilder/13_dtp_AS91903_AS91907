@@ -172,6 +172,7 @@ def create_club():
 
         return render_template("enquiries.html", page_title=page_title, submit=True, active_page="enquiries")
 
+
     conn = get_db_conn()
     clubs = conn.execute('SELECT * FROM clubs ORDER BY club_name ASC').fetchall()
     conn.close()
@@ -185,25 +186,23 @@ def review():
     clubs = conn.execute('SELECT * FROM clubs ORDER BY club_name ASC').fetchall()
 
     if request.method == "POST":
+        
         reviewer_name = request.form.get("full_name")
         email = request.form.get("email")
         club = request.form.get("club")
         club_experince = request.form.get("club_experince")
         club_Rating = request.form.get("rating")
         cur = conn.cursor()
-        print(club['club_name'])
+        
         for i in clubs:
-            print(i['id'], i['club_name'] == club)
             if i['club_name'] == club:
-                i['id'] = club
+                club = i['id']
                 break
         cur.execute("INSERT INTO club_review (reviewer_name, club_id, club_experince, club_Rating) VALUES (?, ?, ?, ?)",\
-(reviewer_name, club, club_experince, club_Rating))
+        (reviewer_name, club, club_experince, club_Rating))
         conn.commit()
-        conn.close()
-        print(conn.execute('SELECT * FROM club_review').fetchall())
-        return render_template("review.html", page_title="Westlake Clubs - Review", clubs=clubs, active_page="review")
-    conn.close()
+        return render_template("review.html", page_title="Westlake Clubs - Review", clubs=clubs, active_page="review", submit=True)
+    
     return render_template("review.html", page_title="Westlake Clubs - Review", active_page="review",clubs=clubs)
 
 if __name__ == '__main__':
