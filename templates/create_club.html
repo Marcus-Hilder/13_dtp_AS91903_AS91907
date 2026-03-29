@@ -7,7 +7,7 @@
         Create a club
     </h1>
 
-    <img class="sign_ups_redvector w-100" src="/static/RedVector1.png" alt="Red Vector">
+    <img class="vector-container-1 w-100" src="/static/RedVector1.png" alt="Red Vector">
 
     <div class="card col-7 mx-auto mt-8 mb-8">
         <div class="card-body p-5">
@@ -23,19 +23,15 @@
                     <input class="col-12 col-xxl-6 col-sm-10 px-3 custom-input-bar" type="text" name="email" id="" required>
                 </div>
                 <div class="my-4">
-                    <p class="card-text">Club Interest</p>
-                    <select class="col-12 col-xxl-6 col-sm-10 px-3 py-1 custom-input-bar" name="club" id="club">
-                        {% for club in clubs %}
-                            <option value="{{ club.club_name.strip().lower().replace(' ', '-') }}" class="dropdown-item custom-dropdown-item-Ryan py-3">{{club.club_name}}</a>
-                        {% endfor %}
-                    </select>
+                    <p class="card-text">Provide a brief description of the club that you want to create</p>
+                    <input class="col-12 col-xxl-6 col-sm-10 px-3 custom-input-bar" type="text" name="description" id="" required>
                 </div>
                 <div class="my-4">
-                    <p class="card-text">Why do you want to join?</p>
+                    <p class="card-text">What leadership skills do you have?</p>
                     <input class="col-12 col-xxl-6 col-sm-10 px-3 custom-input-bar" type="text" name="why_desc" id="" required>
                 </div>
                 <div class="my-4">
-                    <p class="card-text">Will you be able to attend the meetings?</p>
+                    <p class="card-text">Will you be able to lead every meeting?</p>
                     <input class="col-12 col-xxl-6 col-sm-10 px-3 custom-input-bar" type="text" name="availability_desc" id="" required>
                 </div>
 
@@ -44,8 +40,8 @@
             </form>
         </div>
 
-        <div class="d-none d-xxl-block col-4 position-absolute form-image">
-            <img class="w-100" src="/static/westlakeshield.png" alt="">
+        <div class="d-none d-xxl-block col-4 position-absolute enquiry-image">
+            <img class="w-100" src="/static/westlakeshield.png" alt="westlake logo">
         </div>
     </div>
 
