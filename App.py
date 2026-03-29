@@ -157,20 +157,18 @@ def enquiries():
 def create_club():
     """Create club webpage"""
     page_title = "Westlake Clubs - Create Club"
+    conn = get_db_conn()
+    clubs = conn.execute('SELECT * FROM clubs ORDER BY club_name ASC').fetchall()
+    conn.close()
 
-    return render_template("create_club.html", page_title=page_title, active_page="create_club")
+    return render_template("create_club.html", page_title=page_title, clubs=clubs, active_page="create_club")
 
 @app.route('/review', methods=["GET", "POST"])
 def review():
     """Review webpage"""
     conn = get_db_conn()
     clubs = conn.execute('SELECT * FROM clubs ORDER BY club_name ASC').fetchall()
-    # for i in clubs:
-    #         print(i['id'])
-    #         if i['club_name'] == "Running Club":
-    #             print("helloworld")
 
-#    finish sql statment evry thig shoild work
     if request.method == "POST":
         reviewer_name = request.form.get("full_name")
         email = request.form.get("email")
@@ -188,6 +186,7 @@ def review():
 (reviewer_name, club, club_experince, club_Rating))
         conn.commit()
         conn.close()
+        print(conn.execute('SELECT * FROM club_review').fetchall())
         return render_template("review.html", page_title="Westlake Clubs - Review", clubs=clubs, active_page="review")
     conn.close()
     return render_template("review.html", page_title="Westlake Clubs - Review", active_page="review",clubs=clubs)
