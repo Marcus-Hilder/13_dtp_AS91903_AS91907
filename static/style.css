@@ -190,6 +190,19 @@ header img {
     border-radius: 50pt;
 }
 
+.custom-input-bar:required {
+  border-left: 3px solid #ff4b4b;
+}
+
+.custom-input-bar:focus:invalid {
+  border-color: #ff4b4b;
+  background-color: #fffafa;
+}
+
+.custom-input-bar:valid {
+  border-left: 3px solid #4bff4b;
+}
+
 .custom-button {
     background-color: #C60C30 !important;
     color: #ffffff !important;
@@ -245,6 +258,19 @@ header img {
     border-radius: 10pt;
     height: 300px;
     resize: none;
+}
+
+.scroll-container textarea:required {
+  border-left: 3px solid #ff4b4b;
+}
+
+.scroll-container textarea:focus:invalid {
+  border-color: #ff4b4b;
+  background-color: #fffafa;
+}
+
+.scroll-container textarea:valid {
+  border-left: 3px solid #4bff4b;
 }
 
 .enquiry-notif {
@@ -323,4 +349,14 @@ header img {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.card-title-styling {
+    color: #C60C30;
+    font-weight: bold;
+}
+
+.enquiries-row-2 {
+    margin-top: 2%;
+    margin-bottom: 4%;
 }
