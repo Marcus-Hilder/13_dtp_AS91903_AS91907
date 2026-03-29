@@ -157,6 +157,7 @@ def enquiries():
 def create_club():
     """Create club webpage"""
     page_title = "Westlake Clubs - Create Club"
+
     conn = get_db_conn()
     clubs = conn.execute('SELECT * FROM clubs ORDER BY club_name ASC').fetchall()
     conn.close()
