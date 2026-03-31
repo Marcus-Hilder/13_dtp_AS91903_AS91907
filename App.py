@@ -159,14 +159,18 @@ def create_club():
     page_title = "Westlake Clubs - Create Club"
 
     if request.method == "POST":
+        full_name = request.form.get("full_name").strip()
         email = request.form.get("email").strip()
-        enquiry = request.form.get("enquiry").strip()
+        description = request.form.get("description").strip()
+        skills_desc = request.form.get("skills_desc").strip()
+        days = request.form.get("days").strip()
+
         
         conn = get_db_conn()
         conn.row_factory = sqlite3.Row
 
         cur = conn.cursor()
-        cur.execute("INSERT INTO enquiries (email, enquiry) VALUES (?, ?)", (email, enquiry))
+        cur.execute("INSERT INTO club_requests (email, enquiry) VALUES (?, ?, ?, ?, ?)", (full_name, email, description, skills_desc, days))
         conn.commit()
         conn.close()
 
