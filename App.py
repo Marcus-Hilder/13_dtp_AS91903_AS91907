@@ -170,18 +170,13 @@ def create_club():
         conn.row_factory = sqlite3.Row
 
         cur = conn.cursor()
-        cur.execute("INSERT INTO club_requests (email, enquiry) VALUES (?, ?, ?, ?, ?)", (full_name, email, description, skills_desc, days))
+        cur.execute("INSERT INTO club_requests (full_name, email, description, skills_desc, days) VALUES (?, ?, ?, ?, ?)", (full_name, email, description, skills_desc, days))
         conn.commit()
         conn.close()
 
-        return render_template("enquiries.html", page_title=page_title, submit=True, active_page="enquiries")
+        return render_template("create_club.html", page_title=page_title, submit=True, active_page="create_club")
 
-
-    conn = get_db_conn()
-    clubs = conn.execute('SELECT * FROM clubs ORDER BY club_name ASC').fetchall()
-    conn.close()
-
-    return render_template("create_club.html", page_title=page_title, clubs=clubs, active_page="create_club")
+    return render_template("create_club.html", page_title=page_title, active_page="create_club")
 
 @app.route('/review', methods=["GET", "POST"])
 def review():
