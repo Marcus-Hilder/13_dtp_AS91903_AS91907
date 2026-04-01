@@ -161,6 +161,7 @@ def create_club():
     if request.method == "POST":
         full_name = request.form.get("full_name").strip()
         email = request.form.get("email").strip()
+        club_name = request.form.get("email").strip()
         description = request.form.get("description").strip()
         skills_desc = request.form.get("skills_desc").strip()
         days = request.form.get("days").strip()
@@ -170,7 +171,7 @@ def create_club():
         conn.row_factory = sqlite3.Row
 
         cur = conn.cursor()
-        cur.execute("INSERT INTO club_requests (full_name, email, description, skills_desc, days) VALUES (?, ?, ?, ?, ?)", (full_name, email, description, skills_desc, days))
+        cur.execute("INSERT INTO club_requests (full_name, email, club_name, description, skills_desc, days) VALUES (?, ?, ?, ?, ?, ?)", (full_name, email, club_name, description, skills_desc, days))
         conn.commit()
         conn.close()
 
