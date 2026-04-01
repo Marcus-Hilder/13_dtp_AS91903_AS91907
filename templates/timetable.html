@@ -18,8 +18,8 @@
                     <span class="material-symbols-outlined" style="vertical-align:middle;">arrow_back_ios</span> Prev Week
                 </a>
             {% endif %}
-
-            <span class="fw-semibold">{{ month_name }} {{ year }} — Week {{ week + 1 }}</span>
+            <h3 class="col-6 col-md-3 mx-auto py-2 mt-4 text-center text-light rounded custom-page-header">{{ month_name }} {{ year }} -- Week {{ week + 1 }}</h3>
+            
 
             <!-- Next week -->
             {% if week < cal|length - 1 %}
@@ -42,7 +42,10 @@
                 <div class="flex-fill">
                     <div class="card h-100">
                         <div class="card-header bg-success text-white text-center py-2">
-                            <strong>{{ day if day != 0 else '-' }}</strong>
+                            <!--  -->
+                            <!-- add for rest of days  -->
+                            <!--  -->
+                            <strong>{{ 'Monday the :' if count.value == 1}}{{ day if day != 0 else '-' }}</strong>
                         </div>
                         <div class="card-body p-2 d-flex flex-column gap-2">
                             {% set found = namespace(value=false) %}
@@ -70,7 +73,7 @@
         </div>
     </div>
 
-    <!-- ───────── MOBILE: single day view with prev/next day nav ───────── -->
+    <!-- ───────── MOBILE: single day view with prev/next day nav ───────── --> 
     <div class="d-md-none">
         {% set count = namespace(value=0) %}
         {% for day in cal_week %}
