@@ -18,47 +18,42 @@
     </div>
     {% endif %}
 
-    <div class="card col-10 col-xl-7 mx-auto custom-mb">
-        <div class="card-body p-5">
+    <div class="row custom-mb justify-content-evenly">
+        <div class="card col-6 ms-5">
+            <div class="card-body p-5">
 
-            <h5 class="card-title">Enquiries</h5>
-            <h6 class="card-subtitle mb-2 text-body-secondary">Fill out this form to sign up for a club</h6>
+                <h5 class="card-title">Enquiries</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">Fill out this form to sign up for a club</h6>
 
-            <form method="POST" action="/enquiries">
-                <div class="my-4">
-                    <p class="card-text">Email</p>
-                    <input class="col-12 col-xxl-6 col-sm-10 px-3 custom-input-bar" type="text" name="email" id="" required>
-                </div>
-                <div class="my-4 scroll-container">
-                    <textarea class="col-12 col-xxl-6 col-sm-10 px-3" placeholder="Max 300 words..." name="enquiry" required></textarea>
-                </div>
+                <form method="POST" action="/enquiries">
+                    <div class="my-4">
+                        <p class="card-text">Email</p>
+                        <input class="col-11 px-3 custom-input-bar" type="text" placeholder="Please fill out this field..." name="email" id="" required>
+                    </div>
+                    <div class="my-4 scroll-container">
+                        <textarea class="col-11 px-3" placeholder="Max 1000 characters..." name="enquiry" maxlength="1000" required></textarea>
+                    </div>
 
-            <button type="submit" class="btn custom-button">Send</button>
+                <button type="submit" class="btn custom-button">Send</button>
 
-            </form>
-        </div>
-
-        <div class="d-none d-xxl-block col-4 position-absolute enquiry-image">
-            <img class="w-100" src="/static/westlakeshield.png" alt="">
-        </div>
-    </div>
-
-</div>
-
-<div class="container py-2 enquiries-row-2">
-    <div class="row justify-content-evenly">
-        <div class="card col-10 col-lg-5 my-5">
-            <div class="card-body">
-                <h5 class="card-title text-center card-title-styling">How do I use the Enquiries form?</h5>
-                <img src="/static/qmark.png" class="d-flex card-img-top w-50 mx-auto" alt="...">
-                <p class="card-text">The Enquiries Page is a tool that users can use to ask miscellaneous questions about how clubs work at Westlake or how to use the website. To use the Enquiries Page form, all you must do is submit an answer including your question, as well as your school email in the relevant input box.</p>
+                </form>
             </div>
         </div>
-        <div class="card col-10 col-lg-5 my-5">
-            <div class="card-body">
-                <h5 class="card-title text-center card-title-styling">How do I leave my club?</h5>
-                <img src="/static/formimagewhite.jpg" class="d-flex card-img-top w-50 mx-auto" alt="...">
-                <p class="card-text">To leave a club, you may either submit an enquiry through the above form, or email the teacher in charge of the relevant club. To find the teacher's email, first find the desired club in the Timetable webpage and it will be listed under its description.</p>
+
+        <div class="col col-5">
+            <div class="card col-10 mx-auto mb-5">
+                <div class="card-body">
+                    <h5 class="card-title text-center card-title-styling">How do I use the Enquiries form?</h5>
+                    <img src="/static/qmark.png" class="d-flex card-img-top w-10 enquiries-img mx-auto my-2" alt="...">
+                    <p class="card-text">The Enquiries Page is a tool that users can use to ask miscellaneous questions about how clubs work at Westlake or how to use the website. To use the Enquiries Page form, all you must do is submit an answer including your question, as well as your school email in the relevant input box.</p>
+                </div>
+            </div>
+            <div class="card col-10 mx-auto">
+                <div class="card-body">
+                    <h5 class="card-title text-center card-title-styling">How do I leave my club?</h5>
+                    <img src="/static/formimagewhite.jpg" class="d-flex card-img-top enquiries-img mx-auto my-2" alt="...">
+                    <p class="card-text">To leave a club, you may either submit an enquiry through the above form, or email the teacher in charge of the relevant club. To find the teacher's email, first find the desired club in the Timetable webpage and it will be listed under its description.</p>
+                </div>
             </div>
         </div>
     </div>
