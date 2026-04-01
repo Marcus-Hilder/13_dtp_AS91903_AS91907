@@ -194,13 +194,17 @@ header img {
   border-left: 3px solid #ff4b4b;
 }
 
+.custom-input-bar::placeholder {
+    color: #b62b2b;
+}
+
 .custom-input-bar:focus:invalid {
   border-color: #ff4b4b;
   background-color: #fffafa;
 }
 
 .custom-input-bar:valid {
-  border-left: 3px solid #4bff4b;
+  border-left: 0;
 }
 
 .custom-button {
@@ -270,7 +274,7 @@ header img {
 }
 
 .scroll-container textarea:valid {
-  border-left: 3px solid #4bff4b;
+  border-left: 0;
 }
 
 .enquiry-notif {

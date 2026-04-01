@@ -3,6 +3,16 @@ import sqlite3
 from datetime import datetime, timedelta
 import calendar
 
+num_to_day = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+]
+
 app = Flask(__name__) 
 
 
@@ -121,14 +131,14 @@ def sign_ups():
         conn.commit()
         conn.close()
 
-        return render_template("sign_ups.html", page_title=page_title, clubs=clubs, active_page="sign_ups", submit=True)
+        return render_template("sign_ups.html", page_title=page_title, clubs=clubs, num_to_day=num_to_day, active_page="sign_ups", submit=True)
 
 
     conn = get_db_conn()
     clubs = conn.execute('SELECT * FROM clubs ORDER BY club_name ASC').fetchall()
     conn.close()
 
-    return render_template("sign_ups.html", page_title=page_title, clubs=clubs, active_page="sign_ups")
+    return render_template("sign_ups.html", page_title=page_title, clubs=clubs, num_to_day=num_to_day, active_page="sign_ups")
 
 @app.route('/enquiries', methods=["GET", "POST"])
 def enquiries():
@@ -153,7 +163,7 @@ def enquiries():
 
 
 
-@app.route('/create_club')
+@app.route('/create_club', methods=["GET", "POST"])
 def create_club():
     """Create club webpage"""
     page_title = "Westlake Clubs - Create Club"
