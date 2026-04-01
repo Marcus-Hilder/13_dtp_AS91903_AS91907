@@ -8,6 +8,12 @@
         Create a club
     </h1>
 
+    {% if submit == True %}
+    <div class="col-6 col-xl-3 mx-auto enquiry-notif fs-5 text-light mb-3 text-center">
+        <p>Your Club Creation Request has been sent through.</p>
+    </div>
+    {% endif %}
+
     <img class="vector-container-1 w-100" src="/static/RedVector1.png" alt="Red Vector">
 
     <div class="card col-7 mx-auto mt-8 mb-8">
@@ -17,23 +23,23 @@
             <form method="POST" action="/create_club">
                 <div class="my-4">
                     <p class="card-text">Full Name</p>
-                    <input class="col-12 col-xxl-6 col-sm-10 px-3 custom-input-bar" type="text" name="full_name" id="" required>
+                    <input class="col-12 col-xxl-6 col-sm-10 px-3 custom-input-bar" type="text" name="full_name" id="" required placeholder="Please fill out this field...">
                 </div>
                 <div class="my-4">
                     <p class="card-text">School Email</p>
-                    <input class="col-12 col-xxl-6 col-sm-10 px-3 custom-input-bar" type="text" name="email" id="" required>
+                    <input class="col-12 col-xxl-6 col-sm-10 px-3 custom-input-bar" type="text" name="email" id="" required placeholder="Please fill out this field...">
                 </div>
                 <div class="my-4">
                     <p class="card-text">Club Name</p>
-                    <input class="col-12 col-xxl-6 col-sm-10 px-3 custom-input-bar" type="text" name="club_name" id="" required>
+                    <input class="col-12 col-xxl-6 col-sm-10 px-3 custom-input-bar" type="text" name="club_name" id="" required placeholder="Please fill out this field...">
                 </div>
                 <div class="my-4">
                     <p class="card-text">Provide a brief description of the club that you want to create</p>
-                    <input class="col-12 col-xxl-6 col-sm-10 px-3 custom-input-bar" type="text" name="description" id="" required>
+                    <input class="col-12 col-xxl-6 col-sm-10 px-3 custom-input-bar" type="text" name="description" id="" required placeholder="Please fill out this field...">
                 </div>
                 <div class="my-4">
                     <p class="card-text">What leadership skills do you have?</p>
-                    <input class="col-12 col-xxl-6 col-sm-10 px-3 custom-input-bar" type="text" name="skills_desc" id="" required>
+                    <input class="col-12 col-xxl-6 col-sm-10 px-3 custom-input-bar" type="text" name="skills_desc" id="" required placeholder="Please fill out this field...">
                 </div>
                 <div class="my-4">
                     <p class="card-text">On what days will your club run?</p>
@@ -48,7 +54,7 @@
                     </select>
                 </div>
 
-            <button type="submit" class="btn custom-button">Sign Up</button>
+            <button type="submit" class="btn custom-button">Submit a Request</button>
 
             </form>
         </div>
