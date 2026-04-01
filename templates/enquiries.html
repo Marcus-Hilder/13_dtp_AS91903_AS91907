@@ -19,7 +19,7 @@
     {% endif %}
 
     <div class="row custom-mb justify-content-evenly">
-        <div class="card col-6 ms-5">
+        <div class="card col-10 col-lg-6 mb-5">
             <div class="card-body p-5">
 
                 <h5 class="card-title">Enquiries</h5>
@@ -28,10 +28,10 @@
                 <form method="POST" action="/enquiries">
                     <div class="my-4">
                         <p class="card-text">Email</p>
-                        <input class="col-11 px-3 custom-input-bar" type="text" placeholder="Please fill out this field..." name="email" id="" required>
+                        <input class="col-12 px-3 custom-input-bar" type="text" placeholder="Please fill out this field..." name="email" id="" required>
                     </div>
                     <div class="my-4 scroll-container">
-                        <textarea class="col-11 px-3" placeholder="Max 1000 characters..." name="enquiry" maxlength="1000" required></textarea>
+                        <textarea class="col-12 px-3" placeholder="Max 1000 characters..." name="enquiry" maxlength="1000" required></textarea>
                     </div>
 
                 <button type="submit" class="btn custom-button">Send</button>
@@ -40,8 +40,8 @@
             </div>
         </div>
 
-        <div class="col col-4">
-            <div class="card col-10 mx-auto mb-5">
+        <div class="col col-12 col-lg-4">
+            <div class="card col-10 mx-auto mb-4">
                 <div class="card-body">
                     <h5 class="card-title text-center card-title-styling">How do I use the Enquiries form?</h5>
                     <img src="/static/qmark.png" class="d-flex card-img-top w-10 enquiries-img mx-auto my-2" alt="...">
