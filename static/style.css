@@ -368,3 +368,11 @@ header img {
 .enquiries-img {
     width: 25%;
 }
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 6rem;
+  height: 6rem;
+  background-size: 100% 100%;
+}
+
