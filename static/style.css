@@ -177,7 +177,7 @@ header img {
 }
 
 .custom-page-header {
-    background-color: #C60C30 !important;
+    background-color: #D12E2E !important;
 }
 
 .bg-grey {
@@ -224,7 +224,7 @@ header img {
 
 .enquiry-image {
     transform-origin: center;
-    transform: translateX(180%) translateY(30%);
+    transform: translateX(180%) translateY(60%);
 }
 
 .top_vector{
@@ -376,3 +376,8 @@ header img {
   background-size: 100% 100%;
 }
 
+
+.red_overlay {
+    color: #b50024 !important;
+
+}
